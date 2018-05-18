@@ -14,7 +14,6 @@
 #define BACKGROUNDS_FILE "backgrounds.png"
 #define BOARD_FILE "support.png"
 
-
 #define BALL_SIZE 44
 
 #define AMOUNT_OF_GAME_OBJECTS 1000

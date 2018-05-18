@@ -8,21 +8,22 @@
 
 int main(int, char const**)
 {
-    // Create the main window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Arcanoid");
+    // Create the main main_window
+    main_window = new sf::RenderWindow(sf::VideoMode(800, 600), "Arcanoid");
     
     // Set the Icon
     sf::Image icon;
     if (!icon.loadFromFile(resourcePath() + "icon.png")) {
         return EXIT_FAILURE;
     }
-    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
-    window.setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+    main_window->setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
+    
+    main_window->setIcon(icon.getSize().x, icon.getSize().y, icon.getPixelsPtr());
     
     
     //Creating main game objects
-    GraphicsManager GManager(&window);
+    GraphicsManager GManager(main_window);
     PhysicsManager  PManager;
     
     Background b(60);
@@ -68,17 +69,17 @@ int main(int, char const**)
         }
     }
     // Start the game loop
-    while (window.isOpen())
+    while (main_window->isOpen())
     {
         // Process events
         sf::Event event;
-        while (window.pollEvent(event))
+        while (main_window->pollEvent(event))
         {
             switch (event.type)
             {
                 case sf::Event::Closed:
                 {
-                    window.close();
+                    main_window->close();
                 }
                 case sf::Event::KeyPressed:
                 {
@@ -86,7 +87,7 @@ int main(int, char const**)
                     {
                         case sf::Keyboard::Escape:
                         {
-                            window.close();
+                            main_window->close();
                             break;
                         }
                             
@@ -142,11 +143,12 @@ int main(int, char const**)
         //        support.dump();
         
         // Clear screen
-        window.clear();
+        main_window->clear();
         GManager.DrawAllObjects();
         PManager.UpdateAllObjects();
-        // Update the window
-        window.display();
+        // Update the main_window
+        main_window->display();
     }
+    
     return EXIT_SUCCESS;
 }
