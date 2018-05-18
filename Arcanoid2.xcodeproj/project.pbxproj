@@ -85,8 +85,6 @@
 		1765DABF20AF3C4200339C48 /* Arcanoid2 */ = {
 			isa = PBXGroup;
 			children = (
-				1765DAC220AF3C4200339C48 /* ResourcePath.mm */,
-				1765DAC420AF3C4200339C48 /* ResourcePath.hpp */,
 				1765DAC520AF3C4200339C48 /* main.cpp */,
 				1765DAD520AF3C5900339C48 /* Ball.cpp */,
 				1765DAD620AF3C5900339C48 /* Ball.hpp */,
@@ -103,6 +101,8 @@
 				1765DAE520AF3CDC00339C48 /* Board.cpp */,
 				1765DAE820AF3E8300339C48 /* Background.cpp */,
 				1765DAE920AF3E8300339C48 /* Background.hpp */,
+				1765DAC220AF3C4200339C48 /* ResourcePath.mm */,
+				1765DAC420AF3C4200339C48 /* ResourcePath.hpp */,
 				1765DAE620AF3CDC00339C48 /* Board.hpp */,
 				1765DAC720AF3C4200339C48 /* Resources */,
 				1765DAC020AF3C4200339C48 /* Supporting Files */,
