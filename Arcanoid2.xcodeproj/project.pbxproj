@@ -86,10 +86,10 @@
 			isa = PBXGroup;
 			children = (
 				1765DAD620AF3C5900339C48 /* Ball.hpp */,
+				1765DAD920AF3C7100339C48 /* Brick.hpp */,
 				1765DAC520AF3C4200339C48 /* main.cpp */,
 				1765DAD520AF3C5900339C48 /* Ball.cpp */,
 				1765DAD820AF3C7100339C48 /* Brick.cpp */,
-				1765DAD920AF3C7100339C48 /* Brick.hpp */,
 				1765DADB20AF3C7F00339C48 /* Defines.h */,
 				1765DADC20AF3C8900339C48 /* GameObject.cpp */,
 				1765DADD20AF3C8900339C48 /* GameObject.hpp */,
