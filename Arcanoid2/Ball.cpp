@@ -155,21 +155,23 @@ void Ball::changeVelocityDependedOnCollide()
     }
 }
 
+double abs_double(double x)
+{
+    return (x > 0) ? x : -x;
+}
+
 bool Ball::collideCheck(GameObject* obj)
 {
     switch (obj->who()) {
         case BLOCK:
         {
-            double x0 = obj->getX();
-            double y0 = obj->getY();
-            //            double katet_x = abs(x + BALL_SIZE/2 - x0);
-            double katet_y = (y - BLOCK_HEIGHT - y0);
-            
-            //            std::cout << katet_y << std::endl;
-            //            std::cout << katet_x - (BLOCK_WIDTH+BALL_SIZE)/2 << std::endl;
-            //            if (katet1*katet1 + katet2*katet2 <= BLOCK_WIDTH*BLOCK_WIDTH)
-            
-            if (katet_y <= 0)
+            double x0 = obj->getX() + BLOCK_WIDTH/2;
+            double y0 = obj->getY() + BLOCK_HEIGHT/2;
+            #define x x+BALL_SIZE/2
+            #define y y+BALL_SIZE/2
+
+            if (abs_double(y - y0) <= (BALL_SIZE + BLOCK_HEIGHT)/2 &&
+                abs_double(x0 - x) <= ((BLOCK_WIDTH + BALL_SIZE)/2))
             {
                 f = FRONT;
                 return true;
@@ -177,6 +179,9 @@ bool Ball::collideCheck(GameObject* obj)
             else
                 return false;
             break;
+            
+            #undef x
+            #undef y
         }
         case SUPPORT:
         {
