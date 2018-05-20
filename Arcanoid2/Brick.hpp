@@ -11,12 +11,19 @@
 
 #include <GameObject.hpp>
 
+typedef struct Rect
+{
+    int x1, y1, x2, y2;
+}Rect;
+
 class Brick: public GameObject
 {
 private:
     int sort;
     int health;
     int x2, y2;
+    
+    Rect collisionRectangles[4];
     
 public:
     Brick(int the_sort, int ix, int iy);
@@ -26,6 +33,8 @@ public:
     void collideResponse(GameObject* obj);
     
     void getDamage();
+    
+    Rect getRect(int n);
 };
 
 

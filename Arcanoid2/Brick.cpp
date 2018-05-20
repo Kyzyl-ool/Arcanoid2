@@ -23,7 +23,7 @@ health(3)
 {
     type = BLOCK;
     
-    x = ix + 10;
+    x = ix;
     y = iy;
     x2 = x + BLOCK_WIDTH;
     y2 = y + BLOCK_HEIGHT;
@@ -36,6 +36,12 @@ health(3)
                                       BLOCK_HEIGHT/2));
     sprite.setScale(2, 2);
     sprite.setPosition(x, y);
+    
+    collisionRectangles[0] = {ix, iy+BLOCK_HEIGHT, ix+BLOCK_WIDTH, iy+BLOCK_HEIGHT+BALL_SIZE/2};
+    collisionRectangles[1] = {ix - BALL_SIZE/2, iy, ix, iy + BLOCK_HEIGHT};
+    collisionRectangles[2] = {ix + BLOCK_WIDTH, iy, ix + BLOCK_WIDTH + BALL_SIZE/2, iy + BLOCK_HEIGHT};
+    collisionRectangles[3] = {ix, iy - BALL_SIZE/2, ix + BLOCK_WIDTH, iy};
+    
 }
 
 void Brick::update()
@@ -68,4 +74,10 @@ void Brick::collideResponse(GameObject *obj)
         default:
             break;
     }
+}
+
+Rect Brick::getRect(int n)
+{
+    assert(n < BRICK_AMOUNT_OF_COLLISION_RECTANGLES && n >= 0);
+    return collisionRectangles[n];
 }

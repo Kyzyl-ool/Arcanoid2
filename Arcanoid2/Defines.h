@@ -14,6 +14,7 @@
 #define BACKGROUNDS_FILE "backgrounds.png"
 #define BOARD_FILE "support.png"
 
+#define BRICK_AMOUNT_OF_COLLISION_RECTANGLES 4
 
 #define BALL_SIZE 44
 

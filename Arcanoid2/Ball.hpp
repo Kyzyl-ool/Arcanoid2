@@ -18,6 +18,11 @@ enum collide_flag
     LEFT,
     RIGHT,
     BACK,
+    FRONT_LEFT,
+    FRONT_RIGHT,
+    BACK_RIGHT,
+    BACK_LEFT,
+    FROM_BOARD
 };
 
 class Ball: public GameObject

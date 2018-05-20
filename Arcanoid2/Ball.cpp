@@ -8,6 +8,8 @@
 
 #include "Ball.hpp"
 #include "Board.hpp"
+#include "Brick.hpp"
+#include <cmath>
 
 int get_ball_coord_x(int the_type)
 {
@@ -129,8 +131,6 @@ void Ball::changeVelocityDependedOnCollide()
             //            std::cout << 22222222 << std::endl;
             if (Vy > 0)
                 Vy = -Vy;
-            
-            Vx = reflection_angle;
             f = NULL_DESTINATION;
             break;
         }
@@ -150,14 +150,27 @@ void Ball::changeVelocityDependedOnCollide()
             f = NULL_DESTINATION;
             break;
         }
+        case FROM_BOARD:
+        {
+            if (Vy > 0)
+                Vy = -Vy;
+            f = NULL_DESTINATION;
+            Vx = reflection_angle;
+            break;
+        }
         default:
             break;
     }
 }
 
-double abs_double(double x)
+bool IsInRect(double x, double y, Rect rect)
 {
-    return (x > 0) ? x : -x;
+    if (x >= rect.x1 && x <= rect.x2 && y >= rect.y1 && y <= rect.y2)
+    {
+        return true;
+    }
+    else
+        return false;
 }
 
 bool Ball::collideCheck(GameObject* obj)
@@ -169,16 +182,30 @@ bool Ball::collideCheck(GameObject* obj)
             double y0 = obj->getY() + BLOCK_HEIGHT/2;
             #define x x+BALL_SIZE/2
             #define y y+BALL_SIZE/2
-
-            if (abs_double(y - y0) <= (BALL_SIZE + BLOCK_HEIGHT)/2 &&
-                abs_double(x0 - x) <= ((BLOCK_WIDTH + BALL_SIZE)/2))
+            
+            Brick* tmp = (Brick* )obj;
+            if (IsInRect(x, y, tmp->getRect(0)))
             {
                 f = FRONT;
                 return true;
             }
+            else if (IsInRect(x, y, tmp->getRect(1)))
+            {
+                f = LEFT;
+                return true;
+            }
+            else if (IsInRect(x, y, tmp->getRect(2)))
+            {
+                f = RIGHT;
+                return true;
+            }
+            else if (IsInRect(x, y, tmp->getRect(3)))
+            {
+                f = BACK;
+                return true;
+            }
             else
                 return false;
-            break;
             
             #undef x
             #undef y
@@ -192,7 +219,7 @@ bool Ball::collideCheck(GameObject* obj)
                 x + BALL_SIZE/2 > x0 &&
                 x < x0 + length)
             {
-                f = BACK;
+                f = FROM_BOARD;
                 reflection_angle = 10*(x - x0 - length/2 + BALL_SIZE/2)/(length);
                 changeVelocityDependedOnCollide();
                 return true;
