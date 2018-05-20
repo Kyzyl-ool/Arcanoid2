@@ -44,13 +44,20 @@ health(3)
     
 }
 
-void Brick::update()
+void Brick::update(float)
 {
-    sprite.setTextureRect(sf::IntRect(
-                                      get_brick_coord_x(sort),
-                                      get_brick_coord_y(health),
-                                      BLOCK_WIDTH/2,
-                                      BLOCK_HEIGHT/2));
+    if (health <= 0)
+    {
+        must_be_deleted = true;
+    }
+    else
+    {
+        sprite.setTextureRect(sf::IntRect(
+                                          get_brick_coord_x(sort),
+                                          get_brick_coord_y(health),
+                                          BLOCK_WIDTH/2,
+                                          BLOCK_HEIGHT/2));
+    }
 }
 
 void Brick::draw(sf::RenderWindow* window)

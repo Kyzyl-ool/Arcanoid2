@@ -34,7 +34,7 @@ void PhysicsManager::UpdateAllObjects()
                 if (gameobjects[i]->collideCheck(gameobjects[j]))
                 {
                     gameobjects[i]->collideResponse(gameobjects[j]);
-                    //                    gameobjects[j]->collideResponse(gameobjects[i]);
+                    gameobjects[j]->collideResponse(gameobjects[i]);
                 }
             }
     for (int i = 0; i < amount_of_game_objects; i++)
