@@ -28,7 +28,7 @@ private:
 public:
     Brick(int the_sort, int ix, int iy);
     
-    void update();
+    void update(float);
     void draw(sf::RenderWindow* window);
     void collideResponse(GameObject* obj);
     
