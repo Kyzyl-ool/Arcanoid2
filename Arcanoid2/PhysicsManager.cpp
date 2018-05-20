@@ -20,13 +20,6 @@ void PhysicsManager::AddGameObject(GameObject* obj)
 
 void PhysicsManager::UpdateAllObjects()
 {
-    //    dt = clocks.getElapsedTime().asMicroseconds();
-    //    clocks.restart();
-    //    dt /= GAME_SLOWLESS;
-    
-    //    std::cout << "dt = " << dt << std::endl;
-    
-    
     for (int i = 0; i < amount_of_game_objects; i++)
         for (int j = 0; j < amount_of_game_objects; j++)
             if (i != j)
@@ -37,6 +30,7 @@ void PhysicsManager::UpdateAllObjects()
                     gameobjects[j]->collideResponse(gameobjects[i]);
                 }
             }
+    
     for (int i = 0; i < amount_of_game_objects; i++)
     {
         gameobjects[i]->update(dt);

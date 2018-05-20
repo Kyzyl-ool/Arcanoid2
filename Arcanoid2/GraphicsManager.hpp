@@ -16,6 +16,7 @@ class GraphicsManager
 private:
     sf::RenderWindow* window;
     GameObject* gameobjects[AMOUNT_OF_GAME_OBJECTS] = {nullptr};
+    bool exists[AMOUNT_OF_GAME_OBJECTS] = {true};
     int amount_of_game_objects;
     
     
