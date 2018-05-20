@@ -13,7 +13,6 @@
 #include "Defines.h"
 #include <iostream>
 #include <cassert>
-#include <list>
 
 enum GameObject_t
 {
@@ -48,5 +47,6 @@ public:
     GameObject();
     //    ~GameObject();
 };
+
 
 #endif /* GameObject_hpp */
