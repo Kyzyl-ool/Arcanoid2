@@ -37,10 +37,10 @@ health(1)
     sprite.setScale(2, 2);
     sprite.setPosition(x, y);
     
-    collisionRectangles[0] = {ix, iy+BLOCK_HEIGHT, ix+BLOCK_WIDTH, iy+BLOCK_HEIGHT+BALL_SIZE/2};
-    collisionRectangles[1] = {ix - BALL_SIZE/2, iy, ix, iy + BLOCK_HEIGHT};
-    collisionRectangles[2] = {ix + BLOCK_WIDTH, iy, ix + BLOCK_WIDTH + BALL_SIZE/2, iy + BLOCK_HEIGHT};
-    collisionRectangles[3] = {ix, iy - BALL_SIZE/2, ix + BLOCK_WIDTH, iy};
+    collisionRectangles[0] = {x, y+BLOCK_HEIGHT, x+BLOCK_WIDTH, y+BLOCK_HEIGHT+BALL_SIZE/2};
+    collisionRectangles[1] = {x - BALL_SIZE/2, y, x, y + BLOCK_HEIGHT};
+    collisionRectangles[2] = {x + BLOCK_WIDTH, y, x + BLOCK_WIDTH + BALL_SIZE/2, y + BLOCK_HEIGHT};
+    collisionRectangles[3] = {x, y - BALL_SIZE/2, x + BLOCK_WIDTH, y};
     
 }
 

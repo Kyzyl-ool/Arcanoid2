@@ -10,11 +10,7 @@
 #define Brick_hpp
 
 #include <GameObject.hpp>
-
-typedef struct Rect
-{
-    int x1, y1, x2, y2;
-}Rect;
+#include "GameTypes.h"
 
 class Brick: public GameObject
 {

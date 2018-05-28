@@ -10,6 +10,7 @@
 #define Board_hpp
 
 #include <GameObject.hpp>
+#include "GameTypes.h"
 
 enum support_length
 {
@@ -27,6 +28,7 @@ private:
     int screen_size;
     double velocity;
     
+    Rect collisionRectangles[3];
     
 public:
     Board();
@@ -34,8 +36,8 @@ public:
     void draw(sf::RenderWindow* window);
     
     double getVelocity();
-    
     int getLength();
+    Rect getRect(int n);
     
     void setVelocity(double v);
     

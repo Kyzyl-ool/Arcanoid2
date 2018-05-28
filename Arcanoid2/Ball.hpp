@@ -11,6 +11,7 @@
 
 #include <GameObject.hpp>
 
+
 enum collide_flag
 {
     NULL_DESTINATION,
@@ -33,7 +34,6 @@ private:
     bool free = false;
     collide_flag f;
     double reflection_angle;
-    
     
 public:
     Ball();

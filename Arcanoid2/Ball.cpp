@@ -212,20 +212,22 @@ bool Ball::collideCheck(GameObject* obj)
         }
         case SUPPORT:
         {
-            double x0 = obj->getX();
+            double x0 = obj->getX() + BLOCK_WIDTH/2;
+            double y0 = obj->getY() + BLOCK_HEIGHT/2;
+#define x x+BALL_SIZE/2
+#define y y+BALL_SIZE/2
             Board* tmp = (Board* )obj;
-            int length = tmp->getLength();
-            if (y + BALL_SIZE > DEFAULT_SCREEN_HEIGHT - SUPPORT_HEIGHT &&
-                x + BALL_SIZE/2 > x0 &&
-                x < x0 + length)
+            if (IsInRect(x, y, tmp->getRect(0)))
             {
                 f = FROM_BOARD;
-                reflection_angle = 10*(x - x0 - length/2 + BALL_SIZE/2)/(length);
+                reflection_angle = 10*(x - x0 - tmp->getLength()/2 + BALL_SIZE/2)/(tmp->getLength());
                 changeVelocityDependedOnCollide();
                 return true;
             }
             else return false;
             break;
+#undef x
+#undef y
         }
         default:
             break;

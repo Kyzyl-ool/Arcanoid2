@@ -13,6 +13,7 @@ length(SUPPORT_NORMAL),
 screen_size(DEFAULT_SCREEN_WIDTH)
 {
     type = SUPPORT;
+    length = SUPPORT_NORMAL;
     
     x = 0;
     y = DEFAULT_SCREEN_HEIGHT - SUPPORT_HEIGHT;
@@ -24,6 +25,11 @@ screen_size(DEFAULT_SCREEN_WIDTH)
     sprite2.setTexture(texture);
     sprite2.setTextureRect(sf::IntRect(0, 0, 44, 22));
     sprite2.setScale(-1, 1);
+    
+    collisionRectangles[0] = {x, y-BALL_SIZE/2, x + length, y};
+    collisionRectangles[1] = {x - BALL_SIZE/2, y, x, y+SUPPORT_HEIGHT};
+    collisionRectangles[2] = {x + length, y, x+ length + BALL_SIZE/2, y + SUPPORT_HEIGHT};
+    
 }
 
 double Board::getVelocity()
@@ -46,6 +52,10 @@ void Board::update(float dt)
     
     sprite.setPosition(x, y);
     sprite2.setPosition(x+length, y);
+    
+    collisionRectangles[0] = {x, y-BALL_SIZE/2, x + length, y};
+    collisionRectangles[1] = {x - BALL_SIZE/2, y, x, y+SUPPORT_HEIGHT};
+    collisionRectangles[2] = {x + length, y, x+ length + BALL_SIZE/2, y + SUPPORT_HEIGHT};
 }
 
 void Board::dump()
@@ -74,4 +84,10 @@ void Board::draw(sf::RenderWindow* window)
 int Board::getLength()
 {
     return length;
+}
+
+Rect Board::getRect(int n)
+{
+    assert(n < BRICK_AMOUNT_OF_COLLISION_RECTANGLES && n >= 0);
+    return collisionRectangles[n];
 }
