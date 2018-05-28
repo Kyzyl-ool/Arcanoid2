@@ -8,24 +8,18 @@
 
 #include "GraphicsManager.hpp"
 
-GraphicsManager::GraphicsManager(sf::RenderWindow* window_pointer):
-window(window_pointer),
-amount_of_game_objects(0)
+
+
+GraphicsManager::GraphicsManager(MainManager* MM):
+MM(MM)
 {
-    
+
 }
 
-void GraphicsManager::DrawAllObjects()
+void GraphicsManager::DrawGameObjects()
 {
-    for (int i = 0; i < amount_of_game_objects; i++)
-    {
-        gameobjects[i]->draw(window);
+    for (auto it = MM->getGameObjects()->begin(); it != MM->getGameObjects()->end(); ++it) {
+        if (it->first != nullptr)
+            it->first->draw(MM->getRenderWindow());
     }
 }
-
-void GraphicsManager::AddGameObject(GameObject *obj)
-{
-    assert(amount_of_game_objects <= AMOUNT_OF_GAME_OBJECTS);
-    gameobjects[amount_of_game_objects++] = obj;
-}
-

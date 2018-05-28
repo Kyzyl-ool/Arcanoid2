@@ -7,39 +7,29 @@
 //
 
 #include "PhysicsManager.hpp"
-PhysicsManager::PhysicsManager():
-amount_of_game_objects(0)
+PhysicsManager::PhysicsManager(MainManager* MM):
+MM(MM)
 {
     
 }
 
-void PhysicsManager::AddGameObject(GameObject* obj)
+void PhysicsManager::UpdateGameObjects()
 {
-    gameobjects[amount_of_game_objects++] = obj;
-}
-
-void PhysicsManager::UpdateAllObjects()
-{
-    //    dt = clocks.getElapsedTime().asMicroseconds();
-    //    clocks.restart();
-    //    dt /= GAME_SLOWLESS;
-    
-    //    std::cout << "dt = " << dt << std::endl;
-    
-    
-    for (int i = 0; i < amount_of_game_objects; i++)
-        for (int j = 0; j < amount_of_game_objects; j++)
-            if (i != j)
+    for (auto it = MM->getGameObjects()->begin(); it != MM->getGameObjects()->end(); ++it) {
+        for (auto jt = MM->getGameObjects()->begin(); jt != MM->getGameObjects()->end(); ++jt) {
+            if (it->first != nullptr && jt->first != nullptr && it != jt)
             {
-                if (gameobjects[i]->collideCheck(gameobjects[j]))
+                if (it->first->collideCheck(jt->first))
                 {
-                    gameobjects[i]->collideResponse(gameobjects[j]);
-                    gameobjects[j]->collideResponse(gameobjects[i]);
+                    it->first->collideResponse(jt->first);
+                    jt->first->collideResponse(it->first);
                 }
             }
-    for (int i = 0; i < amount_of_game_objects; i++)
-    {
-        gameobjects[i]->update(dt);
+        }
     }
     
+    for (auto it = MM->getGameObjects()->begin(); it != MM->getGameObjects()->end(); ++it) {
+        if (it->first != nullptr)
+            it->first->update(dt);
+    }
 }

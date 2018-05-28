@@ -22,8 +22,10 @@ int main(int, char const**)
     
     
     //Creating main game objects
-    GraphicsManager GManager(&window);
-    PhysicsManager  PManager;
+    MainManager GameMainManager(&window);
+    GraphicsManager GameGraphicsManager(&GameMainManager);
+    PhysicsManager GamePhysicsManager(&GameMainManager);
+    
     
     Background b(60);
     Board support;
@@ -42,30 +44,34 @@ int main(int, char const**)
         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}
     };
-    Brick* bricks[MAX_BLOCKS_X*MAX_BLOCKS_Y] = {nullptr};
+    Brick* bricks[MAX_BLOCKS_X][MAX_BLOCKS_Y];
+    for (int i = 0; i < MAX_BLOCKS_X; ++i) {
+        for (int j = 0; j < MAX_BLOCKS_Y; j++) {
+            bricks[i][j] = nullptr;
+        }
+    }
+    
     for (int i = 0; i < MAX_BLOCKS_Y; i++)
         for (int j = 0; j < MAX_BLOCKS_X; j++)
         {
             if (space[i][j] != -1)
             {
-                bricks[i*MAX_BLOCKS_X + (j % MAX_BLOCKS_X)] = new Brick(space[i][j], j*BLOCK_WIDTH, i*BLOCK_HEIGHT);
+                bricks[i][j] = new Brick(space[i][j], j*BLOCK_WIDTH, i*BLOCK_HEIGHT);
             }
         }
     
-    //Loading all game objects to game manager's array
-    GManager.AddGameObject(&b);
-    GManager.AddGameObject(&support);
-    GManager.AddGameObject(&ball);
+//    Loading all game objects to game manager's array
+    GameMainManager.AddGameObject(&b);
+    GameMainManager.AddGameObject(&support);
+    GameMainManager.AddGameObject(&ball);
     
-    PManager.AddGameObject(&support);
-    PManager.AddGameObject(&ball);
-    for (int i = 0; i < MAX_BLOCKS_Y*MAX_BLOCKS_X; i++)
+    for (int i = 0; i < MAX_BLOCKS_X; i++)
     {
-        if (bricks[i] != nullptr)
-        {
-            GManager.AddGameObject(bricks[i]);
-            PManager.AddGameObject(bricks[i]);
-        }
+        for (int j = 0; j < MAX_BLOCKS_Y; j++)
+            if (bricks[i] != nullptr)
+            {
+                GameMainManager.AddGameObject(bricks[i][j]);
+            }
     }
     // Start the game loop
     while (window.isOpen())
@@ -146,8 +152,8 @@ int main(int, char const**)
         
         // Clear screen
         window.clear();
-        GManager.DrawAllObjects();
-        PManager.UpdateAllObjects();
+        GameGraphicsManager.DrawGameObjects();
+        GamePhysicsManager.UpdateGameObjects();
         // Update the window
         window.display();
     }

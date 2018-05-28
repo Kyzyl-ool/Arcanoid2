@@ -11,6 +11,7 @@
 
 #include "GameObjects.h"
 #include "Defines.h"
+#include "MainManager.hpp"
 
 const float dt = 0.12;
 //sf::Clock clocks;
@@ -18,14 +19,12 @@ const float dt = 0.12;
 class PhysicsManager
 {
 private:
-    GameObject* gameobjects[AMOUNT_OF_GAME_OBJECTS] = {nullptr};
-    int amount_of_game_objects;
+    MainManager* MM;
     
 public:
-    PhysicsManager();
+    PhysicsManager(MainManager* MM);
     
-    void AddGameObject(GameObject* obj);
-    void UpdateAllObjects();
+    void UpdateGameObjects();
 };
 
 

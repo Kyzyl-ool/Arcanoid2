@@ -9,22 +9,20 @@
 #ifndef GraphicsManager_hpp
 #define GraphicsManager_hpp
 
+#include <SFML/Graphics.hpp>
 #include "GameObjects.h"
+#include "MainManager.hpp"
+
 
 class GraphicsManager
 {
 private:
-    sf::RenderWindow* window;
-    GameObject* gameobjects[AMOUNT_OF_GAME_OBJECTS] = {nullptr};
-    int amount_of_game_objects;
-    
+    MainManager* MM;
     
 public:
-    GraphicsManager(sf::RenderWindow* window_pointer);
-    //    ~GraphicsManager();
+    GraphicsManager(MainManager* MM);
+    void DrawGameObjects();
     
-    void AddGameObject(GameObject* obj);
-    void DrawAllObjects();
 };
 
 #endif /* GraphicsManager_hpp */
