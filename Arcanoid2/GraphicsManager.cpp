@@ -19,7 +19,13 @@ MM(MM)
 void GraphicsManager::DrawGameObjects()
 {
     for (auto it = MM->getGameObjects()->begin(); it != MM->getGameObjects()->end(); ++it) {
-        if (it->first != nullptr)
+        if (it->first != nullptr && it->first->who() == BACKGROUND)
             it->first->draw(MM->getRenderWindow());
     }
+    
+    for (auto it = MM->getGameObjects()->begin(); it != MM->getGameObjects()->end(); ++it) {
+        if (it->first != nullptr && it->first->who() != BACKGROUND)
+            it->first->draw(MM->getRenderWindow());
+    }
+    
 }

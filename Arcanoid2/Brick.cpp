@@ -19,7 +19,7 @@ int get_brick_coord_y(int health)
 
 Brick::Brick(int the_sort, int ix, int iy):
 sort(the_sort),
-health(3)
+health(1)
 {
     type = BLOCK;
     

@@ -7,6 +7,8 @@
 //
 
 #include "PhysicsManager.hpp"
+#include <stack>
+
 PhysicsManager::PhysicsManager(MainManager* MM):
 MM(MM)
 {
@@ -15,6 +17,19 @@ MM(MM)
 
 void PhysicsManager::UpdateGameObjects()
 {
+    std::stack<GameObject*> Grave;
+    for (auto it = MM->getGameObjects()->begin(); it != MM->getGameObjects()->end(); ++it) {
+        if (it->first != nullptr && it->first->is_must_be_deleted())
+        {
+            Grave.push(it->first);
+        }
+    }
+    while (!Grave.empty())
+    {
+        MM->RemoveGameObject(Grave.top());
+        Grave.pop();
+    }
+    
     for (auto it = MM->getGameObjects()->begin(); it != MM->getGameObjects()->end(); ++it) {
         for (auto jt = MM->getGameObjects()->begin(); jt != MM->getGameObjects()->end(); ++jt) {
             if (it->first != nullptr && jt->first != nullptr && it != jt)

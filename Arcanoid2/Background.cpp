@@ -20,6 +20,7 @@ int get_background_coord_y(int the_type)
 
 Background::Background(int the_type)
 {
+    type = BACKGROUND;
     sort = the_type;
     x = get_background_coord_x(sort);
     y = get_background_coord_y(sort);

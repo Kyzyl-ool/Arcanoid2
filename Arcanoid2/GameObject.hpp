@@ -20,6 +20,7 @@ enum GameObject_t
     SUPPORT,
     BLOCK,
     WALL,
+    BACKGROUND,
     ABYSS
 };
 
