@@ -17,6 +17,7 @@ class ObjectManager
 private:
     std::map<GameObject*, GameObject*> gameobjects;
     sf::RenderWindow* window;
+    int amount_of_bricks;
     
     
     
@@ -26,6 +27,8 @@ public:
     void RemoveGameObject(GameObject* obj);
     std::map <GameObject*, GameObject*>* getGameObjects();
     sf::RenderWindow* getRenderWindow();
+    
+    bool is_blocks_elpased();
 };
 
 

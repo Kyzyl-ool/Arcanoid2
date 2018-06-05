@@ -12,7 +12,7 @@ GameOverText::GameOverText()
 {
     texture.loadFromFile(GAME_OVER_FILE);
     sprite.setTexture(texture);
-    sprite.setPosition(DEFAULT_SCREEN_WIDTH/2-200, DEFAULT_SCREEN_HEIGHT/2-72);
+    sprite.setPosition((DEFAULT_SCREEN_WIDTH-GAMEOVER_WIDTH)/2, (DEFAULT_SCREEN_HEIGHT-GAMEOVER_HEIGHT)/2);
 }
 
 void GameOverText::draw(sf::RenderWindow* window)

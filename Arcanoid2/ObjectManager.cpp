@@ -17,6 +17,7 @@ window(window)
 void ObjectManager::AddGameObject(GameObject *obj)
 {
     gameobjects[obj] = obj;
+    if (obj->who() == BLOCK) amount_of_bricks++;
 }
 
 void ObjectManager::RemoveGameObject(GameObject *obj)
@@ -32,4 +33,9 @@ sf::RenderWindow* ObjectManager::getRenderWindow()
 std::map <GameObject*, GameObject*>* ObjectManager::getGameObjects()
 {
     return &gameobjects;
+}
+
+bool ObjectManager::is_blocks_elpased()
+{
+    return (amount_of_bricks > 0) ? true : false;
 }

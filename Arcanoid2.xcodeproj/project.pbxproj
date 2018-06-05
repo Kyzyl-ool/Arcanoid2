@@ -23,6 +23,8 @@
 		1792A1EF20C6CB6D004CD7B6 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1792A1ED20C6CB6D004CD7B6 /* GameManager.cpp */; };
 		17D2A12A20C712A8000FB099 /* GameOverText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D2A12820C712A7000FB099 /* GameOverText.cpp */; };
 		17D2A13020C71543000FB099 /* game_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D2A12F20C71543000FB099 /* game_over.png */; };
+		17D2A13720C7170C000FB099 /* LevelClearedText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D2A13520C7170C000FB099 /* LevelClearedText.cpp */; };
+		17D2A13920C7175C000FB099 /* level_cleared.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D2A13820C7175C000FB099 /* level_cleared.png */; };
 		17D8240F20BC2ADC005387B5 /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D8240D20BC2ADC005387B5 /* ObjectManager.cpp */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +65,9 @@
 		17D2A12820C712A7000FB099 /* GameOverText.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverText.cpp; sourceTree = "<group>"; };
 		17D2A12920C712A8000FB099 /* GameOverText.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameOverText.hpp; sourceTree = "<group>"; };
 		17D2A12F20C71543000FB099 /* game_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_over.png; sourceTree = "<group>"; };
+		17D2A13520C7170C000FB099 /* LevelClearedText.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LevelClearedText.cpp; sourceTree = "<group>"; };
+		17D2A13620C7170C000FB099 /* LevelClearedText.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LevelClearedText.hpp; sourceTree = "<group>"; };
+		17D2A13820C7175C000FB099 /* level_cleared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_cleared.png; sourceTree = "<group>"; };
 		17D8240D20BC2ADC005387B5 /* ObjectManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectManager.cpp; sourceTree = "<group>"; };
 		17D8240E20BC2ADC005387B5 /* ObjectManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectManager.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +123,7 @@
 		1765DAC720AF3C4200339C48 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				17D2A13820C7175C000FB099 /* level_cleared.png */,
 				17D2A12F20C71543000FB099 /* game_over.png */,
 				1765DAF820AF411700339C48 /* backgrounds.png */,
 				1765DAF920AF411700339C48 /* blocks.png */,
@@ -135,6 +141,7 @@
 		17D2A13120C71613000FB099 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
+				17D2A13520C7170C000FB099 /* LevelClearedText.cpp */,
 				17D2A12820C712A7000FB099 /* GameOverText.cpp */,
 				17D8240D20BC2ADC005387B5 /* ObjectManager.cpp */,
 				1765DAC520AF3C4200339C48 /* main.cpp */,
@@ -163,6 +170,7 @@
 				1765DAE320AF3C9D00339C48 /* PhysicsManager.hpp */,
 				1792A1EE20C6CB6D004CD7B6 /* GameManager.hpp */,
 				17D2A12920C712A8000FB099 /* GameOverText.hpp */,
+				17D2A13620C7170C000FB099 /* LevelClearedText.hpp */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -249,6 +257,7 @@
 				17D2A13020C71543000FB099 /* game_over.png in Resources */,
 				1765DACB20AF3C4200339C48 /* nice_music.ogg in Resources */,
 				1765DAC920AF3C4200339C48 /* cute_image.jpg in Resources */,
+				17D2A13920C7175C000FB099 /* level_cleared.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +296,7 @@
 				1765DAEA20AF3E8300339C48 /* Background.cpp in Sources */,
 				1765DAC320AF3C4200339C48 /* ResourcePath.mm in Sources */,
 				1765DADE20AF3C8900339C48 /* GameObject.cpp in Sources */,
+				17D2A13720C7170C000FB099 /* LevelClearedText.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

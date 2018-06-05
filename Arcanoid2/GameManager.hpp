@@ -49,6 +49,7 @@ public:
     void UpdateObjects(); //update all objects
     
     void MakeGameOverText();
+    void MakeLevelClearedText();
     
 //    void StopGame(); //stops game
     

@@ -182,6 +182,8 @@ void GameManager::DrawObjects()
 void GameManager::UpdateObjects()
 {
     MainPhysicsManager.UpdateGameObjects();
+//    if (!MainObjectManager.is_blocks_elpased())
+    
 }
 
 void GameManager::RunGame()
@@ -200,4 +202,9 @@ void GameManager::RunGame()
 Board* GameManager::getBoardInstance()
 {
     return &TheBoard;
+}
+
+void GameManager::MakeLevelClearedText()
+{
+    
 }

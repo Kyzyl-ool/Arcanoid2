@@ -12,6 +12,7 @@
 #define GAME_WINDOW_NAME "Arcanoid"
 
 #define GAME_OVER_FILE "game_over.png"
+#define LEVEL_CLEARED_FILE "level_cleared.png"
 #define DEFAULT_BLOCKS_FILE "default_blocks.png"
 #define BLOCKS_AND_BALLS_FILE "blocks2.png"
 #define BACKGROUNDS_FILE "backgrounds.png"
@@ -19,6 +20,12 @@
 
 #define BRICK_AMOUNT_OF_COLLISION_RECTANGLES 4
 #define BOARD_AMOUNT_OF_COLLISION_RECTANGLES 3
+
+#define GAMEOVER_WIDTH 400
+#define GAMEOVER_HEIGHT 144
+
+#define LEVELCLEARED_WIDTH 319
+#define LEVELCLEARED_HEIGHT 87
 
 #define BALL_SIZE 44
 
