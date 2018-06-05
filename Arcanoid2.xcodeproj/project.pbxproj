@@ -102,6 +102,7 @@
 		1765DABF20AF3C4200339C48 /* Arcanoid2 */ = {
 			isa = PBXGroup;
 			children = (
+				1765DAC520AF3C4200339C48 /* main.cpp */,
 				17D2A13220C7163A000FB099 /* Headers */,
 				17D2A13120C71613000FB099 /* Implementations */,
 				17D2A13320C71651000FB099 /* Helpings */,
@@ -144,7 +145,6 @@
 				17D2A13520C7170C000FB099 /* LevelClearedText.cpp */,
 				17D2A12820C712A7000FB099 /* GameOverText.cpp */,
 				17D8240D20BC2ADC005387B5 /* ObjectManager.cpp */,
-				1765DAC520AF3C4200339C48 /* main.cpp */,
 				1765DAD520AF3C5900339C48 /* Ball.cpp */,
 				1765DAD820AF3C7100339C48 /* Brick.cpp */,
 				1765DADC20AF3C8900339C48 /* GameObject.cpp */,
@@ -160,17 +160,9 @@
 		17D2A13220C7163A000FB099 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				1765DAD620AF3C5900339C48 /* Ball.hpp */,
-				1765DAD920AF3C7100339C48 /* Brick.hpp */,
-				1765DAE620AF3CDC00339C48 /* Board.hpp */,
-				1765DAE920AF3E8300339C48 /* Background.hpp */,
-				1765DADD20AF3C8900339C48 /* GameObject.hpp */,
-				17D8240E20BC2ADC005387B5 /* ObjectManager.hpp */,
-				1765DAE020AF3C9400339C48 /* GraphicsManager.hpp */,
-				1765DAE320AF3C9D00339C48 /* PhysicsManager.hpp */,
-				1792A1EE20C6CB6D004CD7B6 /* GameManager.hpp */,
-				17D2A12920C712A8000FB099 /* GameOverText.hpp */,
-				17D2A13620C7170C000FB099 /* LevelClearedText.hpp */,
+				17D2A13A20C71CE3000FB099 /* GameObjects */,
+				17D2A13B20C71D09000FB099 /* Managers */,
+				17D2A13C20C71D1B000FB099 /* Texts */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -192,6 +184,38 @@
 				1765DAEB20AF400600339C48 /* GameObjects.h */,
 			);
 			name = "Defines and includes";
+			sourceTree = "<group>";
+		};
+		17D2A13A20C71CE3000FB099 /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				1765DADD20AF3C8900339C48 /* GameObject.hpp */,
+				1765DAD620AF3C5900339C48 /* Ball.hpp */,
+				1765DAD920AF3C7100339C48 /* Brick.hpp */,
+				1765DAE620AF3CDC00339C48 /* Board.hpp */,
+				1765DAE920AF3E8300339C48 /* Background.hpp */,
+			);
+			name = GameObjects;
+			sourceTree = "<group>";
+		};
+		17D2A13B20C71D09000FB099 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1792A1EE20C6CB6D004CD7B6 /* GameManager.hpp */,
+				17D8240E20BC2ADC005387B5 /* ObjectManager.hpp */,
+				1765DAE020AF3C9400339C48 /* GraphicsManager.hpp */,
+				1765DAE320AF3C9D00339C48 /* PhysicsManager.hpp */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		17D2A13C20C71D1B000FB099 /* Texts */ = {
+			isa = PBXGroup;
+			children = (
+				17D2A12920C712A8000FB099 /* GameOverText.hpp */,
+				17D2A13620C7170C000FB099 /* LevelClearedText.hpp */,
+			);
+			name = Texts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

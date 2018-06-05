@@ -27,6 +27,7 @@ private:
     Brick* Bricks;
     
     GameOverText TheGameOverText;
+    LevelClearedText TheLevelClearedText;
     
     sf::Event MainEvent;
     

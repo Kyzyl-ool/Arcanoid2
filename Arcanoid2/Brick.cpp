@@ -48,7 +48,7 @@ void Brick::update(float)
 {
     if (health <= 0)
     {
-        must_be_deleted = true;
+        must_be_deleted = true;   
     }
     else
     {

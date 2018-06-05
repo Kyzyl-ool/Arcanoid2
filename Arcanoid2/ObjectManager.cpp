@@ -9,7 +9,8 @@
 #include "ObjectManager.hpp"
 
 ObjectManager::ObjectManager(sf::RenderWindow* window):
-window(window)
+window(window),
+amount_of_bricks(0)
 {
 
 }
@@ -17,11 +18,11 @@ window(window)
 void ObjectManager::AddGameObject(GameObject *obj)
 {
     gameobjects[obj] = obj;
-    if (obj->who() == BLOCK) amount_of_bricks++;
 }
 
 void ObjectManager::RemoveGameObject(GameObject *obj)
 {
+    if (obj->who() == BLOCK) amount_of_bricks--;
     gameobjects.erase(obj);
 }
 
@@ -38,4 +39,9 @@ std::map <GameObject*, GameObject*>* ObjectManager::getGameObjects()
 bool ObjectManager::is_blocks_elpased()
 {
     return (amount_of_bricks > 0) ? true : false;
+}
+
+void ObjectManager::inc_amount_of_bricks()
+{
+    amount_of_bricks++;
 }

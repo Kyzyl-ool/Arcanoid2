@@ -29,10 +29,11 @@ MainWindow(iMainWindow),
 MainObjectManager(ObjectManager(MainWindow)),
 MainGraphicsManager(GraphicsManager(&MainObjectManager)),
 MainPhysicsManager(PhysicsManager(&MainObjectManager)),
-MainBackground(Background(1)),
+MainBackground(Background(0)),
 TheBoard(Board()),
 TheBall(Ball(this)),
-TheGameOverText(GameOverText())
+TheGameOverText(GameOverText()),
+TheLevelClearedText(LevelClearedText())
 {
     //Creating main game objects
     
@@ -57,6 +58,8 @@ TheGameOverText(GameOverText())
             if (Space[i][j] != -1)
             {
                 Bricks[i][j] = new Brick(Space[i][j], j*BLOCK_WIDTH, i*BLOCK_HEIGHT);
+                MainObjectManager.AddGameObject(Bricks[i][j]);
+                MainObjectManager.inc_amount_of_bricks();
             }
         }
     
@@ -69,14 +72,14 @@ TheGameOverText(GameOverText())
     MainObjectManager.AddGameObject(&TheBoard);
     MainObjectManager.AddGameObject(&TheBall);
     
-    for (int i = 0; i < MAX_BLOCKS_Y; i++)
-    {
-        for (int j = 0; j < MAX_BLOCKS_X; j++)
-            if (Bricks[i] != nullptr)
-            {
-                MainObjectManager.AddGameObject(Bricks[i][j]);
-            }
-    }
+//    for (int i = 0; i < MAX_BLOCKS_Y; i++)
+//    {
+//        for (int j = 0; j < MAX_BLOCKS_X; j++)
+//            if (Bricks[i] != nullptr)
+//            {
+//
+//            }
+//    }
 }
 
 void GameManager::CheckKeyboard()
@@ -182,7 +185,8 @@ void GameManager::DrawObjects()
 void GameManager::UpdateObjects()
 {
     MainPhysicsManager.UpdateGameObjects();
-//    if (!MainObjectManager.is_blocks_elpased())
+    if (!MainObjectManager.is_blocks_elpased())
+        MakeLevelClearedText();
     
 }
 
@@ -204,7 +208,12 @@ Board* GameManager::getBoardInstance()
     return &TheBoard;
 }
 
+void GameManager::MakeGameOverText()
+{
+    MainObjectManager.AddGameObject(&TheGameOverText);
+}
+
 void GameManager::MakeLevelClearedText()
 {
-    
+    MainObjectManager.AddGameObject(&TheLevelClearedText);
 }

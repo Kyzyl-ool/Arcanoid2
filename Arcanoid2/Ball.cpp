@@ -239,8 +239,3 @@ bool Ball::collideCheck(GameObject* obj)
             break;
     }
 }
-
-void GameManager::MakeGameOverText()
-{
-    MainObjectManager.AddGameObject(&TheGameOverText);
-}

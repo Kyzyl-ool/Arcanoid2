@@ -15,6 +15,6 @@
 #include "Board.hpp"
 #include "Background.hpp"
 #include "GameOverText.hpp"
-
+#include "LevelClearedText.hpp"
 
 #endif /* GameObjects_h */
