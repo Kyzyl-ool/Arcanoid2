@@ -32,6 +32,11 @@ screen_size(DEFAULT_SCREEN_WIDTH)
     
 }
 
+Board::~Board()
+{
+    
+}
+
 double Board::getVelocity()
 {
     return velocity;

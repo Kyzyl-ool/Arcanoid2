@@ -34,6 +34,7 @@ private:
     
 public:
     GameManager(sf::RenderWindow* iMainWindow);
+    GameManager* getInstance();
     
     void RunGame(); //start game loop
     
@@ -48,6 +49,7 @@ public:
     
     void StopGame(); //stops game
     
+    Board* getBoardInstance();
 };
 
 #endif /* GameManager_hpp */

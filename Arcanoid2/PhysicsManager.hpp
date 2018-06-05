@@ -13,7 +13,7 @@
 #include "Defines.h"
 #include "ObjectManager.hpp"
 
-const float dt = 0.7;
+const float dt = 0.15;
 //sf::Clock clocks;
 
 class PhysicsManager

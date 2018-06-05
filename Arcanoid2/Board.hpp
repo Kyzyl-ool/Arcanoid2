@@ -32,6 +32,7 @@ private:
     
 public:
     Board();
+    ~Board();
     
     void draw(sf::RenderWindow* window);
     

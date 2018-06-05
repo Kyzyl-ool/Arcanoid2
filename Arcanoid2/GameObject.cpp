@@ -38,3 +38,8 @@ bool GameObject::is_must_be_deleted()
 {
     return must_be_deleted;
 }
+
+void GameObject::set_must_be_deleted(bool value)
+{
+    must_be_deleted = value;
+}

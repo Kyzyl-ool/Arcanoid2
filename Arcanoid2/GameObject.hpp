@@ -40,6 +40,7 @@ public:
     virtual void draw(sf::RenderWindow* window) {;}
     virtual bool collideCheck(GameObject* obj) {;}
     virtual void collideResponse(GameObject* obj) {;}
+    void set_must_be_deleted(bool);
     
     double getX();
     double getY();

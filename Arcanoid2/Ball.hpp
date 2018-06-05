@@ -9,8 +9,7 @@
 #ifndef Ball_hpp
 #define Ball_hpp
 
-#include <GameObject.hpp>
-
+#include "GameObject.hpp"
 
 enum collide_flag
 {
@@ -34,9 +33,10 @@ private:
     bool free = false;
     collide_flag f;
     double reflection_angle;
+    void* GM;
     
 public:
-    Ball();
+    Ball(void*);
     
     void setVelocity(double iVx, double iVy);
     

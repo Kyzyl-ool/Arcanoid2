@@ -10,6 +10,7 @@
 #include "Board.hpp"
 #include "Brick.hpp"
 #include <cmath>
+#include "GameManager.hpp"
 
 int get_ball_coord_x(int the_type)
 {
@@ -21,8 +22,9 @@ int get_ball_coord_y(int the_type)
     return 588+(the_type/3)*BALL_SIZE*5;
 }
 
-Ball::Ball():
-f(NULL_DESTINATION)
+Ball::Ball(void* GM):
+f(NULL_DESTINATION),
+GM(GM)
 {
     type = BALL;
     texture.loadFromFile(BLOCKS_AND_BALLS_FILE);
@@ -77,10 +79,13 @@ void Ball::update(float dt)
         f = FRONT;
         changeVelocityDependedOnCollide();
     }
-    else if (y > DEFAULT_SCREEN_HEIGHT)
+    else if (y > DEFAULT_SCREEN_HEIGHT && free)
     {
         Vx = 0;
         Vy = 0;
+        must_be_deleted = true;
+        ((GameManager* )GM)->getInstance()->getBoardInstance()->set_must_be_deleted(true);
+        
     }
     
     sprite.setPosition(x, y);
