@@ -10,6 +10,7 @@
 
 GameOverText::GameOverText()
 {
+    type = GAME_OVER_TEXT;
     texture.loadFromFile(GAME_OVER_FILE);
     sprite.setTexture(texture);
     sprite.setPosition((DEFAULT_SCREEN_WIDTH-GAMEOVER_WIDTH)/2, (DEFAULT_SCREEN_HEIGHT-GAMEOVER_HEIGHT)/2);
