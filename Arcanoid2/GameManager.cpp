@@ -31,7 +31,8 @@ MainGraphicsManager(GraphicsManager(&MainObjectManager)),
 MainPhysicsManager(PhysicsManager(&MainObjectManager)),
 MainBackground(Background(1)),
 TheBoard(Board()),
-TheBall(Ball(this))
+TheBall(Ball(this)),
+TheGameOverText(GameOverText())
 {
     //Creating main game objects
     
@@ -194,11 +195,6 @@ void GameManager::RunGame()
         ClearWindow();
         DrawObjects();
     }
-}
-
-GameManager* GameManager::getInstance()
-{
-    return this;
 }
 
 Board* GameManager::getBoardInstance()

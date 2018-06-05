@@ -84,8 +84,9 @@ void Ball::update(float dt)
         Vx = 0;
         Vy = 0;
         must_be_deleted = true;
-        ((GameManager* )GM)->getInstance()->getBoardInstance()->set_must_be_deleted(true);
+        ((GameManager* )GM)->getBoardInstance()->set_must_be_deleted(true);
         
+        ((GameManager* )GM)->MakeGameOverText();
     }
     
     sprite.setPosition(x, y);
@@ -237,4 +238,9 @@ bool Ball::collideCheck(GameObject* obj)
         default:
             break;
     }
+}
+
+void GameManager::MakeGameOverText()
+{
+    MainObjectManager.AddGameObject(&TheGameOverText);
 }

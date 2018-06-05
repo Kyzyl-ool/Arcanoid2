@@ -26,6 +26,8 @@ private:
     Ball TheBall;
     Brick* Bricks;
     
+    GameOverText TheGameOverText;
+    
     sf::Event MainEvent;
     
     int Space[MAX_BLOCKS_Y][MAX_BLOCKS_X];
@@ -34,7 +36,6 @@ private:
     
 public:
     GameManager(sf::RenderWindow* iMainWindow);
-    GameManager* getInstance();
     
     void RunGame(); //start game loop
     
@@ -47,7 +48,9 @@ public:
     void DrawObjects(); //draw all objects
     void UpdateObjects(); //update all objects
     
-    void StopGame(); //stops game
+    void MakeGameOverText();
+    
+//    void StopGame(); //stops game
     
     Board* getBoardInstance();
 };

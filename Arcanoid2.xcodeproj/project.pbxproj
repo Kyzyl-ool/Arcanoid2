@@ -21,6 +21,8 @@
 		1765DAE720AF3CDC00339C48 /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1765DAE520AF3CDC00339C48 /* Board.cpp */; };
 		1765DAEA20AF3E8300339C48 /* Background.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1765DAE820AF3E8300339C48 /* Background.cpp */; };
 		1792A1EF20C6CB6D004CD7B6 /* GameManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1792A1ED20C6CB6D004CD7B6 /* GameManager.cpp */; };
+		17D2A12A20C712A8000FB099 /* GameOverText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D2A12820C712A7000FB099 /* GameOverText.cpp */; };
+		17D2A13020C71543000FB099 /* game_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D2A12F20C71543000FB099 /* game_over.png */; };
 		17D8240F20BC2ADC005387B5 /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D8240D20BC2ADC005387B5 /* ObjectManager.cpp */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,9 @@
 		1765DAFA20AF411700339C48 /* default_blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_blocks.png; sourceTree = "<group>"; };
 		1792A1ED20C6CB6D004CD7B6 /* GameManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameManager.cpp; sourceTree = "<group>"; };
 		1792A1EE20C6CB6D004CD7B6 /* GameManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameManager.hpp; sourceTree = "<group>"; };
+		17D2A12820C712A7000FB099 /* GameOverText.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverText.cpp; sourceTree = "<group>"; };
+		17D2A12920C712A8000FB099 /* GameOverText.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameOverText.hpp; sourceTree = "<group>"; };
+		17D2A12F20C71543000FB099 /* game_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = game_over.png; sourceTree = "<group>"; };
 		17D8240D20BC2ADC005387B5 /* ObjectManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectManager.cpp; sourceTree = "<group>"; };
 		17D8240E20BC2ADC005387B5 /* ObjectManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectManager.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,30 +97,10 @@
 		1765DABF20AF3C4200339C48 /* Arcanoid2 */ = {
 			isa = PBXGroup;
 			children = (
-				1765DAD620AF3C5900339C48 /* Ball.hpp */,
-				1765DAD920AF3C7100339C48 /* Brick.hpp */,
-				1765DAE620AF3CDC00339C48 /* Board.hpp */,
-				1765DAE920AF3E8300339C48 /* Background.hpp */,
-				1765DADD20AF3C8900339C48 /* GameObject.hpp */,
-				17D8240E20BC2ADC005387B5 /* ObjectManager.hpp */,
-				1765DAE020AF3C9400339C48 /* GraphicsManager.hpp */,
-				1765DAE320AF3C9D00339C48 /* PhysicsManager.hpp */,
-				1792A1EE20C6CB6D004CD7B6 /* GameManager.hpp */,
-				1792A1ED20C6CB6D004CD7B6 /* GameManager.cpp */,
-				17D8240D20BC2ADC005387B5 /* ObjectManager.cpp */,
-				1765DAC520AF3C4200339C48 /* main.cpp */,
-				1765DAD520AF3C5900339C48 /* Ball.cpp */,
-				1765DAD820AF3C7100339C48 /* Brick.cpp */,
-				1765DADC20AF3C8900339C48 /* GameObject.cpp */,
-				1765DADF20AF3C9400339C48 /* GraphicsManager.cpp */,
-				1765DAE220AF3C9D00339C48 /* PhysicsManager.cpp */,
-				1765DAE520AF3CDC00339C48 /* Board.cpp */,
-				1765DAE820AF3E8300339C48 /* Background.cpp */,
-				1765DAC220AF3C4200339C48 /* ResourcePath.mm */,
-				172892C920BC77BA00D9F1FF /* GameTypes.h */,
-				1765DADB20AF3C7F00339C48 /* Defines.h */,
-				1765DAEB20AF400600339C48 /* GameObjects.h */,
-				1765DAC420AF3C4200339C48 /* ResourcePath.hpp */,
+				17D2A13220C7163A000FB099 /* Headers */,
+				17D2A13120C71613000FB099 /* Implementations */,
+				17D2A13320C71651000FB099 /* Helpings */,
+				17D2A13420C7165B000FB099 /* Defines and includes */,
 				1765DAC720AF3C4200339C48 /* Resources */,
 				1765DAC020AF3C4200339C48 /* Supporting Files */,
 			);
@@ -133,6 +118,7 @@
 		1765DAC720AF3C4200339C48 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				17D2A12F20C71543000FB099 /* game_over.png */,
 				1765DAF820AF411700339C48 /* backgrounds.png */,
 				1765DAF920AF411700339C48 /* blocks.png */,
 				1765DAF720AF411700339C48 /* blocks2.png */,
@@ -144,6 +130,60 @@
 				1765DACE20AF3C4200339C48 /* icon.png */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		17D2A13120C71613000FB099 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				17D2A12820C712A7000FB099 /* GameOverText.cpp */,
+				17D8240D20BC2ADC005387B5 /* ObjectManager.cpp */,
+				1765DAC520AF3C4200339C48 /* main.cpp */,
+				1765DAD520AF3C5900339C48 /* Ball.cpp */,
+				1765DAD820AF3C7100339C48 /* Brick.cpp */,
+				1765DADC20AF3C8900339C48 /* GameObject.cpp */,
+				1765DADF20AF3C9400339C48 /* GraphicsManager.cpp */,
+				1765DAE220AF3C9D00339C48 /* PhysicsManager.cpp */,
+				1765DAE520AF3CDC00339C48 /* Board.cpp */,
+				1765DAE820AF3E8300339C48 /* Background.cpp */,
+				1792A1ED20C6CB6D004CD7B6 /* GameManager.cpp */,
+			);
+			name = Implementations;
+			sourceTree = "<group>";
+		};
+		17D2A13220C7163A000FB099 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				1765DAD620AF3C5900339C48 /* Ball.hpp */,
+				1765DAD920AF3C7100339C48 /* Brick.hpp */,
+				1765DAE620AF3CDC00339C48 /* Board.hpp */,
+				1765DAE920AF3E8300339C48 /* Background.hpp */,
+				1765DADD20AF3C8900339C48 /* GameObject.hpp */,
+				17D8240E20BC2ADC005387B5 /* ObjectManager.hpp */,
+				1765DAE020AF3C9400339C48 /* GraphicsManager.hpp */,
+				1765DAE320AF3C9D00339C48 /* PhysicsManager.hpp */,
+				1792A1EE20C6CB6D004CD7B6 /* GameManager.hpp */,
+				17D2A12920C712A8000FB099 /* GameOverText.hpp */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		17D2A13320C71651000FB099 /* Helpings */ = {
+			isa = PBXGroup;
+			children = (
+				1765DAC220AF3C4200339C48 /* ResourcePath.mm */,
+				1765DAC420AF3C4200339C48 /* ResourcePath.hpp */,
+			);
+			name = Helpings;
+			sourceTree = "<group>";
+		};
+		17D2A13420C7165B000FB099 /* Defines and includes */ = {
+			isa = PBXGroup;
+			children = (
+				172892C920BC77BA00D9F1FF /* GameTypes.h */,
+				1765DADB20AF3C7F00339C48 /* Defines.h */,
+				1765DAEB20AF400600339C48 /* GameObjects.h */,
+			);
+			name = "Defines and includes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +246,7 @@
 			files = (
 				1765DACF20AF3C4200339C48 /* icon.png in Resources */,
 				1765DACD20AF3C4200339C48 /* sansation.ttf in Resources */,
+				17D2A13020C71543000FB099 /* game_over.png in Resources */,
 				1765DACB20AF3C4200339C48 /* nice_music.ogg in Resources */,
 				1765DAC920AF3C4200339C48 /* cute_image.jpg in Resources */,
 			);
@@ -238,6 +279,7 @@
 				1765DAE120AF3C9400339C48 /* GraphicsManager.cpp in Sources */,
 				1765DAE420AF3C9D00339C48 /* PhysicsManager.cpp in Sources */,
 				1765DAE720AF3CDC00339C48 /* Board.cpp in Sources */,
+				17D2A12A20C712A8000FB099 /* GameOverText.cpp in Sources */,
 				1765DAD720AF3C5900339C48 /* Ball.cpp in Sources */,
 				1765DADA20AF3C7100339C48 /* Brick.cpp in Sources */,
 				1765DAC620AF3C4200339C48 /* main.cpp in Sources */,

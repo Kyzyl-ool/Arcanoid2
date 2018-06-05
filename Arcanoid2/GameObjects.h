@@ -14,6 +14,7 @@
 #include "Brick.hpp"
 #include "Board.hpp"
 #include "Background.hpp"
+#include "GameOverText.hpp"
 
 
 #endif /* GameObjects_h */
