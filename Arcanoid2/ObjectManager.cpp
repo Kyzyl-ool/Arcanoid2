@@ -6,30 +6,30 @@
 //  Copyright © 2018 Кежик Кызыл-оол. All rights reserved.
 //
 
-#include "MainManager.hpp"
+#include "ObjectManager.hpp"
 
-MainManager::MainManager(sf::RenderWindow* window):
+ObjectManager::ObjectManager(sf::RenderWindow* window):
 window(window)
 {
 
 }
 
-void MainManager::AddGameObject(GameObject *obj)
+void ObjectManager::AddGameObject(GameObject *obj)
 {
     gameobjects[obj] = obj;
 }
 
-void MainManager::RemoveGameObject(GameObject *obj)
+void ObjectManager::RemoveGameObject(GameObject *obj)
 {
     gameobjects.erase(obj);
 }
 
-sf::RenderWindow* MainManager::getRenderWindow()
+sf::RenderWindow* ObjectManager::getRenderWindow()
 {
     return window;
 }
 
-std::map <GameObject*, GameObject*>* MainManager::getGameObjects()
+std::map <GameObject*, GameObject*>* ObjectManager::getGameObjects()
 {
     return &gameobjects;
 }

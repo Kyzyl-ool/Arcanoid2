@@ -12,7 +12,7 @@
 #include <map>
 #include "GameObject.hpp"
 
-class MainManager
+class ObjectManager
 {
 private:
     std::map<GameObject*, GameObject*> gameobjects;
@@ -21,7 +21,7 @@ private:
     
     
 public:
-    MainManager(sf::RenderWindow* window);
+    ObjectManager(sf::RenderWindow* window);
     void AddGameObject(GameObject* obj);
     void RemoveGameObject(GameObject* obj);
     std::map <GameObject*, GameObject*>* getGameObjects();

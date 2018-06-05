@@ -9,6 +9,8 @@
 #ifndef Defines_h
 #define Defines_h
 
+#define GAME_WINDOW_NAME "Arcanoid"
+
 #define DEFAULT_BLOCKS_FILE "default_blocks.png"
 #define BLOCKS_AND_BALLS_FILE "blocks2.png"
 #define BACKGROUNDS_FILE "backgrounds.png"

@@ -10,7 +10,7 @@
 
 
 
-GraphicsManager::GraphicsManager(MainManager* MM):
+GraphicsManager::GraphicsManager(ObjectManager* MM):
 MM(MM)
 {
 

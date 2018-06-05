@@ -9,7 +9,7 @@
 #include "PhysicsManager.hpp"
 #include <stack>
 
-PhysicsManager::PhysicsManager(MainManager* MM):
+PhysicsManager::PhysicsManager(ObjectManager* MM):
 MM(MM)
 {
     

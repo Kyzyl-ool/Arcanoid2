@@ -11,16 +11,16 @@
 
 #include <SFML/Graphics.hpp>
 #include "GameObjects.h"
-#include "MainManager.hpp"
+#include "ObjectManager.hpp"
 
 
 class GraphicsManager
 {
 private:
-    MainManager* MM;
+    ObjectManager* MM;
     
 public:
-    GraphicsManager(MainManager* MM);
+    GraphicsManager(ObjectManager* MM);
     void DrawGameObjects();
     
 };

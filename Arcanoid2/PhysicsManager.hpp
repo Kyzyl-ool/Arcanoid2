@@ -11,18 +11,18 @@
 
 #include "GameObjects.h"
 #include "Defines.h"
-#include "MainManager.hpp"
+#include "ObjectManager.hpp"
 
-const float dt = 0.12;
+const float dt = 0.7;
 //sf::Clock clocks;
 
 class PhysicsManager
 {
 private:
-    MainManager* MM;
+    ObjectManager* MM;
     
 public:
-    PhysicsManager(MainManager* MM);
+    PhysicsManager(ObjectManager* MM);
     
     void UpdateGameObjects();
 };
