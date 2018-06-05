@@ -21,6 +21,7 @@ enum GameObject_t
     BLOCK,
     WALL,
     BACKGROUND,
+    GAME_OVER_TEXT,
     ABYSS
 };
 
