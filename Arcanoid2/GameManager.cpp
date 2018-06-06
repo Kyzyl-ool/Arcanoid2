@@ -9,18 +9,32 @@
 #include "GameManager.hpp"
 #include "Defines.h"
 
-const int map1[MAX_BLOCKS_Y][MAX_BLOCKS_X] =
+const int maps[MAPS_AMOUNT][MAX_BLOCKS_Y][MAX_BLOCKS_X] =
 {
-    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-    {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}
+    {
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}
+    },
+    {
+        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}
+    }
 };
 
 
@@ -36,36 +50,7 @@ TheGameOverText(GameOverText()),
 TheLevelClearedText(LevelClearedText())
 {
     //Creating main game objects
-    
-    for (int i = 0; i < MAX_BLOCKS_Y; ++i) {
-        for (int j = 0; j < MAX_BLOCKS_X; j++) {
-            Space[i][j] = map1[i][j];
-        }
-    }
-    
-    
-    Brick* Bricks[MAX_BLOCKS_Y][MAX_BLOCKS_X];
-    
-    for (int i = 0; i < MAX_BLOCKS_Y; ++i) {
-        for (int j = 0; j < MAX_BLOCKS_X; j++) {
-            Bricks[i][j] = nullptr;
-        }
-    }
-    
-    for (int i = 0; i < MAX_BLOCKS_Y; i++)
-        for (int j = 0; j < MAX_BLOCKS_X; j++)
-        {
-            if (Space[i][j] != -1)
-            {
-                Bricks[i][j] = new Brick(Space[i][j], j*BLOCK_WIDTH, i*BLOCK_HEIGHT);
-                MainObjectManager.AddGameObject(Bricks[i][j]);
-                MainObjectManager.inc_amount_of_bricks();
-            }
-        }
-    
-    
-    
-    
+    LoadMap(0);
     
     //    Loading all game objects to game manager's array
     MainObjectManager.AddGameObject(&MainBackground);
@@ -216,4 +201,33 @@ void GameManager::MakeGameOverText()
 void GameManager::MakeLevelClearedText()
 {
     MainObjectManager.AddGameObject(&TheLevelClearedText);
+}
+
+void GameManager::LoadMap(int map_number)
+{
+    for (int i = 0; i < MAX_BLOCKS_Y; ++i) {
+        for (int j = 0; j < MAX_BLOCKS_X; j++) {
+            Space[i][j] = maps[map_number][i][j];
+        }
+    }
+    
+    
+    Brick* Bricks[MAX_BLOCKS_Y][MAX_BLOCKS_X];
+    
+    for (int i = 0; i < MAX_BLOCKS_Y; ++i) {
+        for (int j = 0; j < MAX_BLOCKS_X; j++) {
+            Bricks[i][j] = nullptr;
+        }
+    }
+    
+    for (int i = 0; i < MAX_BLOCKS_Y; i++)
+        for (int j = 0; j < MAX_BLOCKS_X; j++)
+        {
+            if (Space[i][j] != -1)
+            {
+                Bricks[i][j] = new Brick(Space[i][j], j*BLOCK_WIDTH, i*BLOCK_HEIGHT);
+                MainObjectManager.AddGameObject(Bricks[i][j]);
+                MainObjectManager.inc_amount_of_bricks();
+            }
+        }
 }

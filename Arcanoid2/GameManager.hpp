@@ -52,6 +52,8 @@ public:
     void MakeGameOverText();
     void MakeLevelClearedText();
     
+    void LoadMap(int map_number);
+    
 //    void StopGame(); //stops game
     
     Board* getBoardInstance();

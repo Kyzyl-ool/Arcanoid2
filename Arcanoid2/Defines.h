@@ -51,4 +51,6 @@
 #define BACKGROUND_DISTANCE 2
 #define BACKGROUND_BORDER_THICKNESS 10
 
+#define MAPS_AMOUNT 2
+
 #endif /* Defines_h */
