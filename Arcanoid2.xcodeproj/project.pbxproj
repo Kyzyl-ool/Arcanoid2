@@ -33,6 +33,7 @@
 		17EDB83E20C968D1001F9E87 /* MenuButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17EDB83C20C968D1001F9E87 /* MenuButton.cpp */; };
 		17EDB84220C9691E001F9E87 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17EDB84020C9691E001F9E87 /* Button.cpp */; };
 		17EDB84520C970FE001F9E87 /* MainMenuManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17EDB84320C970FE001F9E87 /* MainMenuManager.cpp */; };
+		17EDB84820C97178001F9E87 /* MainManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17EDB84620C97178001F9E87 /* MainManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,8 @@
 		17EDB84120C9691E001F9E87 /* Button.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Button.hpp; sourceTree = "<group>"; };
 		17EDB84320C970FE001F9E87 /* MainMenuManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuManager.cpp; sourceTree = "<group>"; };
 		17EDB84420C970FE001F9E87 /* MainMenuManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainMenuManager.hpp; sourceTree = "<group>"; };
+		17EDB84620C97178001F9E87 /* MainManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MainManager.cpp; sourceTree = "<group>"; };
+		17EDB84720C97178001F9E87 /* MainManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MainManager.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				17EDB83220C959BF001F9E87 /* CongratulationsText.cpp */,
+				17EDB84620C97178001F9E87 /* MainManager.cpp */,
 				17EDB84020C9691E001F9E87 /* Button.cpp */,
 				17D2A13520C7170C000FB099 /* LevelClearedText.cpp */,
 				17EDB83520C967B4001F9E87 /* MenuBackground.cpp */,
@@ -229,6 +233,7 @@
 		17D2A13B20C71D09000FB099 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				17EDB84720C97178001F9E87 /* MainManager.hpp */,
 				1792A1EE20C6CB6D004CD7B6 /* GameManager.hpp */,
 				17D8240E20BC2ADC005387B5 /* ObjectManager.hpp */,
 				1765DAE020AF3C9400339C48 /* GraphicsManager.hpp */,
@@ -361,6 +366,7 @@
 				1765DADA20AF3C7100339C48 /* Brick.cpp in Sources */,
 				1765DAC620AF3C4200339C48 /* main.cpp in Sources */,
 				1792A1EF20C6CB6D004CD7B6 /* GameManager.cpp in Sources */,
+				17EDB84820C97178001F9E87 /* MainManager.cpp in Sources */,
 				1765DAEA20AF3E8300339C48 /* Background.cpp in Sources */,
 				1765DAC320AF3C4200339C48 /* ResourcePath.mm in Sources */,
 				1765DADE20AF3C8900339C48 /* GameObject.cpp in Sources */,
