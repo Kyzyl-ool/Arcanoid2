@@ -43,3 +43,10 @@ void Background::draw(sf::RenderWindow* window)
             window->draw(sprite);
         }
 }
+
+void Background::set_number(int number)
+{
+    x = get_background_coord_x(number);
+    y = get_background_coord_y(number);
+    sprite.setTextureRect(sf::IntRect(x, y, BACKGROUND_TEXTURE_SIZE, BACKGROUND_TEXTURE_SIZE));
+}

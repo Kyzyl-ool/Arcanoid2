@@ -40,22 +40,22 @@ const int maps[MAPS_AMOUNT][MAX_BLOCKS_Y][MAX_BLOCKS_X] =
 
 GameManager::GameManager(sf::RenderWindow* iMainWindow):
 MainWindow(iMainWindow),
-MainObjectManager(ObjectManager(MainWindow)),
-MainGraphicsManager(GraphicsManager(&MainObjectManager)),
-MainPhysicsManager(PhysicsManager(&MainObjectManager)),
-MainBackground(Background(0)),
-TheBoard(Board()),
-TheBall(Ball(this)),
-TheGameOverText(GameOverText()),
-TheLevelClearedText(LevelClearedText())
+MainObjectManager(new ObjectManager(MainWindow)),
+MainGraphicsManager(new GraphicsManager(MainObjectManager)),
+MainPhysicsManager(new PhysicsManager(MainObjectManager)),
+MainBackground(new Background(0)),
+TheBoard(new Board()),
+TheBall(new Ball(this)),
+TheGameOverText(new GameOverText()),
+TheLevelClearedText(new LevelClearedText())
 {
     //Creating main game objects
     LoadMap(0);
     
     //    Loading all game objects to game manager's array
-    MainObjectManager.AddGameObject(&MainBackground);
-    MainObjectManager.AddGameObject(&TheBoard);
-    MainObjectManager.AddGameObject(&TheBall);
+    MainObjectManager->AddGameObject(MainBackground);
+    MainObjectManager->AddGameObject(TheBoard);
+    MainObjectManager->AddGameObject(TheBall);
     
 //    for (int i = 0; i < MAX_BLOCKS_Y; i++)
 //    {
@@ -78,16 +78,30 @@ void GameManager::CheckKeyboard()
         }
         case sf::Keyboard::Right:
         {
-            TheBoard.setVelocity(20);
+            TheBoard->setVelocity(20);
             break;
         }
         case sf::Keyboard::Left:
         {
-            TheBoard.setVelocity(-20);
+            TheBoard->setVelocity(-20);
             break;
         }
         case sf::Keyboard::Space:
         {
+            if (level_cleared)
+            {
+                level_cleared = false;
+                LoadMap(++current_map_number);
+                MainBackground->set_number(current_map_number);
+                TheLevelClearedText->set_must_be_deleted(true);
+                
+                TheBall = new Ball(this);
+                TheBoard = new Board();
+                
+                
+                MainObjectManager->AddGameObject(TheBall);
+                MainObjectManager->AddGameObject(TheBoard);
+            }
             break;
         }
         default:
@@ -104,7 +118,7 @@ void GameManager::CheckKeyboardRelease()
         case sf::Keyboard::Right:
         case sf::Keyboard::Left:
         {
-            TheBoard.setVelocity(0);
+            TheBoard->setVelocity(0);
             break;
         }
         default: break;
@@ -117,8 +131,8 @@ void GameManager::CheckMousePress()
         {
             case sf::Mouse::Left:
             {
-                TheBall.release();
-                TheBall.setVelocity(0, -10);
+                TheBall->release();
+                TheBall->setVelocity(0, -10);
                 break;
             }
             default: break;
@@ -163,13 +177,13 @@ void GameManager::ClearWindow()
 
 void GameManager::DrawObjects()
 {
-    MainGraphicsManager.DrawGameObjects();
+    MainGraphicsManager->DrawGameObjects();
     MainWindow->display();
 }
 
 void GameManager::UpdateObjects()
 {
-    MainPhysicsManager.UpdateGameObjects();
+    MainPhysicsManager->UpdateGameObjects();
 }
 
 void GameManager::RunGame()
@@ -187,12 +201,13 @@ void GameManager::RunGame()
 
 void GameManager::MakeGameOverText()
 {
-    MainObjectManager.AddGameObject(&TheGameOverText);
+    MainObjectManager->AddGameObject(TheGameOverText);
 }
 
 void GameManager::MakeLevelClearedText()
 {
-    MainObjectManager.AddGameObject(&TheLevelClearedText);
+    MainObjectManager->AddGameObject(TheLevelClearedText);
+    level_cleared = true;
 }
 
 void GameManager::LoadMap(int map_number)
@@ -218,23 +233,23 @@ void GameManager::LoadMap(int map_number)
             if (Space[i][j] != -1)
             {
                 Bricks[i][j] = new Brick(Space[i][j], j*BLOCK_WIDTH, i*BLOCK_HEIGHT);
-                MainObjectManager.AddGameObject(Bricks[i][j]);
-                MainObjectManager.inc_amount_of_bricks();
+                MainObjectManager->AddGameObject(Bricks[i][j]);
+                MainObjectManager->inc_amount_of_bricks();
             }
         }
 }
 
 void GameManager::DestroyBoard()
 {
-    TheBoard.~Board();
+    TheBoard->set_must_be_deleted(true);
 }
 
 void GameManager::DestroyBall()
 {
-    TheBall.~Ball();
+    TheBall->set_must_be_deleted(true);
 }
 
 bool GameManager::isBlocksLeft()
 {
-    return MainObjectManager.is_blocks_elpased();
+    return MainObjectManager->is_blocks_elpased();
 }

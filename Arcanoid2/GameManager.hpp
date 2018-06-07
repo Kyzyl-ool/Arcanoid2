@@ -17,21 +17,24 @@ class GameManager
 private:
     sf::RenderWindow* MainWindow;
     
-    ObjectManager MainObjectManager;
-    GraphicsManager MainGraphicsManager;
-    PhysicsManager MainPhysicsManager;
+    ObjectManager* MainObjectManager;
+    GraphicsManager* MainGraphicsManager;
+    PhysicsManager* MainPhysicsManager;
     
-    Background MainBackground;
-    Board TheBoard;
-    Ball TheBall;
+    Background* MainBackground;
+    Board* TheBoard;
+    Ball* TheBall;
     Brick* Bricks;
     
-    GameOverText TheGameOverText;
-    LevelClearedText TheLevelClearedText;
+    GameOverText* TheGameOverText;
+    LevelClearedText* TheLevelClearedText;
     
     sf::Event MainEvent;
     
     int Space[MAX_BLOCKS_Y][MAX_BLOCKS_X];
+    
+    int current_map_number = 0;
+    bool level_cleared = false;
     
 public:
     GameManager(sf::RenderWindow* iMainWindow);
@@ -54,6 +57,7 @@ public:
     void DestroyBall();
     
     void LoadMap(int map_number);
+    
     
 //    void StopGame(); //stops game
     

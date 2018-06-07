@@ -20,6 +20,7 @@ public:
     Background(int the_type);
     
     void draw(sf::RenderWindow* window);
+    void set_number(int number);
 };
 
 #endif /* Background_hpp */

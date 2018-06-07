@@ -79,23 +79,26 @@ void Ball::update(float dt)
         f = FRONT;
         changeVelocityDependedOnCollide();
     }
-    else if (y > DEFAULT_SCREEN_HEIGHT && free)
+    
+    sprite.setPosition(x, y);
+    
+    if (y > DEFAULT_SCREEN_HEIGHT && free)
     {
         Vx = 0;
         Vy = 0;
         
         ((GameManager* )GM)->MakeGameOverText();
-        ((GameManager* )GM)->DestroyBall();
         ((GameManager* )GM)->DestroyBoard();
+        ((GameManager* )GM)->DestroyBall();
     }
     
     if (!((GameManager*)GM)->isBlocksLeft()) {
         ((GameManager* )GM)->MakeLevelClearedText();
-        ((GameManager* )GM)->DestroyBall();
         ((GameManager* )GM)->DestroyBoard();
+        ((GameManager* )GM)->DestroyBall();
     }
     
-    sprite.setPosition(x, y);
+    
     
     //    std::cout << x << ", " << y << std::endl;
 }

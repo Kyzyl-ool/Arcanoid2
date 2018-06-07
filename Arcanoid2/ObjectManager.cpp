@@ -24,6 +24,8 @@ void ObjectManager::RemoveGameObject(GameObject *obj)
 {
     if (obj->who() == BLOCK) amount_of_bricks--;
     gameobjects.erase(obj);
+//    gameobjects[obj] = nullptr;
+    obj->~GameObject();
 }
 
 sf::RenderWindow* ObjectManager::getRenderWindow()
