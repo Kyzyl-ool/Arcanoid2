@@ -262,9 +262,9 @@ void GameManager::LoadMap(int map_number)
             {
                 Bricks[i][j]->setSort(maps[map_number][i][j]);
                 Bricks[i][j]->Activate();
+                Bricks[i][j]->setHealth(1);
                 MainObjectManager->inc_amount_of_bricks();
             }
-        
         }
     }
 }
@@ -310,3 +310,5 @@ void GameManager::BrickDestroyed()
 {
     MainObjectManager->dec_amount_of_bricks();
 }
+
+

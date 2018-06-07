@@ -95,3 +95,8 @@ void Brick::setSort(int isort)
 {
     sort = isort;
 }
+
+void Brick::setHealth(int ihealth)
+{
+    health = ihealth;
+}

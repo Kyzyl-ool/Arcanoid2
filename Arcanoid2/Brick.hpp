@@ -31,6 +31,7 @@ public:
     void getDamage();
     
     void setSort(int isort);
+    void setHealth(int ihealth);
     
     Rect getRect(int n);
 };
