@@ -12,6 +12,10 @@
 #include <GameObject.hpp>
 #include "GameTypes.h"
 
+#define AMOUNT_OF_SORTS 3
+
+const int sort_health[AMOUNT_OF_SORTS] = {1, 2, 3};
+
 class Brick: public GameObject
 {
 private:
@@ -31,7 +35,7 @@ public:
     void getDamage();
     
     void setSort(int isort);
-    void setHealth(int ihealth);
+//    void setHealth(int ihealth);
     
     Rect getRect(int n);
 };

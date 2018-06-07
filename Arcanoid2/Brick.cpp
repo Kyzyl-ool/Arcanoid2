@@ -94,9 +94,11 @@ Rect Brick::getRect(int n)
 void Brick::setSort(int isort)
 {
     sort = isort;
+    health = sort_health[isort];
 }
 
-void Brick::setHealth(int ihealth)
-{
-    health = ihealth;
-}
+//void Brick::setHealth(int ihealth)
+//{
+//    health = ihealth;
+//}
+
