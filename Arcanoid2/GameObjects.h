@@ -16,5 +16,6 @@
 #include "Background.hpp"
 #include "GameOverText.hpp"
 #include "LevelClearedText.hpp"
+#include "CongratulationsText.hpp"
 
 #endif /* GameObjects_h */

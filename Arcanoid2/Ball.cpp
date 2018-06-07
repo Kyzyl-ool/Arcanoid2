@@ -87,15 +87,11 @@ void Ball::update(float dt)
         Vx = 0;
         Vy = 0;
         
-        ((GameManager* )GM)->MakeGameOverText();
-        ((GameManager* )GM)->DestroyBoard();
-        ((GameManager* )GM)->DestroyBall();
+        ((GameManager*)GM)->BallFelt();
     }
     
     if (!((GameManager*)GM)->isBlocksLeft()) {
-        ((GameManager* )GM)->MakeLevelClearedText();
-        ((GameManager* )GM)->DestroyBoard();
-        ((GameManager* )GM)->DestroyBall();
+        ((GameManager*)GM)->LevelComplete();
     }
     
     

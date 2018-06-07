@@ -17,6 +17,7 @@
 #define BLOCKS_AND_BALLS_FILE "blocks2.png"
 #define BACKGROUNDS_FILE "backgrounds.png"
 #define BOARD_FILE "support.png"
+#define CONGRATULATIONS_FILE "congratulations_text.png"
 
 #define BRICK_AMOUNT_OF_COLLISION_RECTANGLES 4
 #define BOARD_AMOUNT_OF_COLLISION_RECTANGLES 3
@@ -26,6 +27,9 @@
 
 #define LEVELCLEARED_WIDTH 319
 #define LEVELCLEARED_HEIGHT 87
+
+#define CONGRATULATIONS_WIDTH 468
+#define CONGRATULATIONS_HEIGHT 222
 
 #define BALL_SIZE 44
 
@@ -50,7 +54,5 @@
 #define BACKGROUND_TEXTURE_SIZE 60
 #define BACKGROUND_DISTANCE 2
 #define BACKGROUND_BORDER_THICKNESS 10
-
-#define MAPS_AMOUNT 2
 
 #endif /* Defines_h */

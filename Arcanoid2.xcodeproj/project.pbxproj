@@ -26,6 +26,7 @@
 		17D2A13720C7170C000FB099 /* LevelClearedText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D2A13520C7170C000FB099 /* LevelClearedText.cpp */; };
 		17D2A13920C7175C000FB099 /* level_cleared.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D2A13820C7175C000FB099 /* level_cleared.png */; };
 		17D8240F20BC2ADC005387B5 /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D8240D20BC2ADC005387B5 /* ObjectManager.cpp */; };
+		17EDB83420C959BF001F9E87 /* CongratulationsText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17EDB83220C959BF001F9E87 /* CongratulationsText.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,8 @@
 		17D2A13820C7175C000FB099 /* level_cleared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level_cleared.png; sourceTree = "<group>"; };
 		17D8240D20BC2ADC005387B5 /* ObjectManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ObjectManager.cpp; sourceTree = "<group>"; };
 		17D8240E20BC2ADC005387B5 /* ObjectManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectManager.hpp; sourceTree = "<group>"; };
+		17EDB83220C959BF001F9E87 /* CongratulationsText.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CongratulationsText.cpp; sourceTree = "<group>"; };
+		17EDB83320C959BF001F9E87 /* CongratulationsText.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CongratulationsText.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +145,7 @@
 		17D2A13120C71613000FB099 /* Implementations */ = {
 			isa = PBXGroup;
 			children = (
+				17EDB83220C959BF001F9E87 /* CongratulationsText.cpp */,
 				17D2A13520C7170C000FB099 /* LevelClearedText.cpp */,
 				17D2A12820C712A7000FB099 /* GameOverText.cpp */,
 				17D8240D20BC2ADC005387B5 /* ObjectManager.cpp */,
@@ -212,6 +216,7 @@
 		17D2A13C20C71D1B000FB099 /* Texts */ = {
 			isa = PBXGroup;
 			children = (
+				17EDB83320C959BF001F9E87 /* CongratulationsText.hpp */,
 				17D2A12920C712A8000FB099 /* GameOverText.hpp */,
 				17D2A13620C7170C000FB099 /* LevelClearedText.hpp */,
 			);
@@ -320,6 +325,7 @@
 				1765DAEA20AF3E8300339C48 /* Background.cpp in Sources */,
 				1765DAC320AF3C4200339C48 /* ResourcePath.mm in Sources */,
 				1765DADE20AF3C8900339C48 /* GameObject.cpp in Sources */,
+				17EDB83420C959BF001F9E87 /* CongratulationsText.cpp in Sources */,
 				17D2A13720C7170C000FB099 /* LevelClearedText.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

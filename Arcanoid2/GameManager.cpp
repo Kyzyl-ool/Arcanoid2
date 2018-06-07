@@ -9,6 +9,8 @@
 #include "GameManager.hpp"
 #include "Defines.h"
 
+#define MAPS_AMOUNT 3
+
 const int maps[MAPS_AMOUNT][MAX_BLOCKS_Y][MAX_BLOCKS_X] =
 {
     {
@@ -24,7 +26,21 @@ const int maps[MAPS_AMOUNT][MAX_BLOCKS_Y][MAX_BLOCKS_X] =
         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}
     },
     {
-        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+//        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}
+    },
+    {
+        //        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0},
         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
@@ -47,7 +63,8 @@ MainBackground(new Background(0)),
 TheBoard(new Board()),
 TheBall(new Ball(this)),
 TheGameOverText(new GameOverText()),
-TheLevelClearedText(new LevelClearedText())
+TheLevelClearedText(new LevelClearedText()),
+TheCongratulationsText(new CongratulationsText())
 {
     //Creating main game objects
     LoadMap(0);
@@ -91,16 +108,25 @@ void GameManager::CheckKeyboard()
             if (level_cleared)
             {
                 level_cleared = false;
-                LoadMap(++current_map_number);
-                MainBackground->set_number(current_map_number);
                 TheLevelClearedText->set_must_be_deleted(true);
                 
-                TheBall = new Ball(this);
-                TheBoard = new Board();
-                
-                
-                MainObjectManager->AddGameObject(TheBall);
-                MainObjectManager->AddGameObject(TheBoard);
+                if (current_map_number < MAPS_AMOUNT-1)
+                {
+                    LoadMap(++current_map_number);
+                    MainBackground->set_number(current_map_number);
+                    
+                    TheBall = new Ball(this);
+                    TheBoard = new Board();
+                    
+                    MainObjectManager->AddGameObject(TheBall);
+                    MainObjectManager->AddGameObject(TheBoard);
+                }
+                else
+                {
+                    MakeCongratulationsText();
+                    TheBoard->set_must_be_deleted(true);
+                    TheBall->set_must_be_deleted(true);
+                }
             }
             break;
         }
@@ -252,4 +278,23 @@ void GameManager::DestroyBall()
 bool GameManager::isBlocksLeft()
 {
     return MainObjectManager->is_blocks_elpased();
+}
+
+void GameManager::MakeCongratulationsText()
+{
+    MainObjectManager->AddGameObject(TheCongratulationsText);
+}
+
+void GameManager::BallFelt()
+{
+    MakeGameOverText();
+    DestroyBall();
+    DestroyBoard();
+}
+
+void GameManager::LevelComplete()
+{
+    MakeLevelClearedText();
+    DestroyBoard();
+    DestroyBall();
 }

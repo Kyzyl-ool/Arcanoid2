@@ -28,6 +28,8 @@ private:
     
     GameOverText* TheGameOverText;
     LevelClearedText* TheLevelClearedText;
+    CongratulationsText* TheCongratulationsText;
+    
     
     sf::Event MainEvent;
     
@@ -52,16 +54,22 @@ public:
     
     void MakeGameOverText();
     void MakeLevelClearedText();
+    void MakeCongratulationsText();
     
     void DestroyBoard();
     void DestroyBall();
     
+    void BallFelt();
+    void LevelComplete();
+    
     void LoadMap(int map_number);
     
+    void GoNextLevel();
     
 //    void StopGame(); //stops game
     
     bool isBlocksLeft();
+    
 };
 
 #endif /* GameManager_hpp */
