@@ -22,6 +22,7 @@ private:
     PhysicsManager* MainPhysicsManager;
     
     Background* MainBackground;
+    MenuBackground* TheMenuBackground;
     Board* TheBoard;
     Ball* TheBall;
     Brick* Bricks;
@@ -32,11 +33,13 @@ private:
     
     
     sf::Event MainEvent;
+    sf::Font MainFont;
     
     int Space[MAX_BLOCKS_Y][MAX_BLOCKS_X];
     
     int current_map_number = 0;
     bool level_cleared = false;
+    bool main_menu_status = true;
     
 public:
     GameManager(sf::RenderWindow* iMainWindow);
@@ -51,6 +54,10 @@ public:
     void ClearWindow(); //clear window
     void DrawObjects(); //draw all objects
     void UpdateObjects(); //update all objects
+    
+    void DrawMenu();
+    void CheckMenuEvents();
+    void CheckMenuKeyboardEvents();
     
     void MakeGameOverText();
     void MakeLevelClearedText();

@@ -64,8 +64,12 @@ TheBoard(new Board()),
 TheBall(new Ball(this)),
 TheGameOverText(new GameOverText()),
 TheLevelClearedText(new LevelClearedText()),
-TheCongratulationsText(new CongratulationsText())
+TheCongratulationsText(new CongratulationsText()),
+TheMenuBackground(new MenuBackground())
 {
+    //Initializing font
+    MainFont.loadFromFile(MAIN_FONT_FILE);
+    
     //Creating main game objects
     LoadMap(0);
     
@@ -224,11 +228,18 @@ void GameManager::RunGame()
     // Start the game loop
     while (MainWindow->isOpen())
     {
-        CheckEvents();
-        
-        UpdateObjects();
-        ClearWindow();
-        DrawObjects();
+        if (main_menu_status)
+        {
+            
+            DrawMenu();
+        }
+        else
+        {
+            CheckEvents();
+            UpdateObjects();
+            ClearWindow();
+            DrawObjects();
+        }
     }
 }
 
@@ -309,4 +320,9 @@ void GameManager::LevelComplete()
     MakeLevelClearedText();
     DestroyBoard();
     DestroyBall();
+}
+
+void GameManager::DrawMenu()
+{
+    
 }

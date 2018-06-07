@@ -27,6 +27,10 @@
 		17D2A13920C7175C000FB099 /* level_cleared.png in Resources */ = {isa = PBXBuildFile; fileRef = 17D2A13820C7175C000FB099 /* level_cleared.png */; };
 		17D8240F20BC2ADC005387B5 /* ObjectManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17D8240D20BC2ADC005387B5 /* ObjectManager.cpp */; };
 		17EDB83420C959BF001F9E87 /* CongratulationsText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17EDB83220C959BF001F9E87 /* CongratulationsText.cpp */; };
+		17EDB83720C967B4001F9E87 /* MenuBackground.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17EDB83520C967B4001F9E87 /* MenuBackground.cpp */; };
+		17EDB83A20C96812001F9E87 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 17EDB83820C96812001F9E87 /* bg.png */; };
+		17EDB83B20C96812001F9E87 /* congratulations_text.png in Resources */ = {isa = PBXBuildFile; fileRef = 17EDB83920C96812001F9E87 /* congratulations_text.png */; };
+		17EDB83E20C968D1001F9E87 /* MenuButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17EDB83C20C968D1001F9E87 /* MenuButton.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +77,12 @@
 		17D8240E20BC2ADC005387B5 /* ObjectManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ObjectManager.hpp; sourceTree = "<group>"; };
 		17EDB83220C959BF001F9E87 /* CongratulationsText.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CongratulationsText.cpp; sourceTree = "<group>"; };
 		17EDB83320C959BF001F9E87 /* CongratulationsText.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CongratulationsText.hpp; sourceTree = "<group>"; };
+		17EDB83520C967B4001F9E87 /* MenuBackground.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuBackground.cpp; sourceTree = "<group>"; };
+		17EDB83620C967B4001F9E87 /* MenuBackground.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuBackground.hpp; sourceTree = "<group>"; };
+		17EDB83820C96812001F9E87 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		17EDB83920C96812001F9E87 /* congratulations_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = congratulations_text.png; sourceTree = "<group>"; };
+		17EDB83C20C968D1001F9E87 /* MenuButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuButton.cpp; sourceTree = "<group>"; };
+		17EDB83D20C968D1001F9E87 /* MenuButton.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuButton.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +117,7 @@
 			children = (
 				1765DAC520AF3C4200339C48 /* main.cpp */,
 				17D2A13220C7163A000FB099 /* Headers */,
+				17EDB83F20C968E0001F9E87 /* Buttons */,
 				17D2A13120C71613000FB099 /* Implementations */,
 				17D2A13320C71651000FB099 /* Helpings */,
 				17D2A13420C7165B000FB099 /* Defines and includes */,
@@ -128,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				17D2A13820C7175C000FB099 /* level_cleared.png */,
+				17EDB83820C96812001F9E87 /* bg.png */,
+				17EDB83920C96812001F9E87 /* congratulations_text.png */,
 				17D2A12F20C71543000FB099 /* game_over.png */,
 				1765DAF820AF411700339C48 /* backgrounds.png */,
 				1765DAF920AF411700339C48 /* blocks.png */,
@@ -147,9 +160,11 @@
 			children = (
 				17EDB83220C959BF001F9E87 /* CongratulationsText.cpp */,
 				17D2A13520C7170C000FB099 /* LevelClearedText.cpp */,
+				17EDB83520C967B4001F9E87 /* MenuBackground.cpp */,
 				17D2A12820C712A7000FB099 /* GameOverText.cpp */,
 				17D8240D20BC2ADC005387B5 /* ObjectManager.cpp */,
 				1765DAD520AF3C5900339C48 /* Ball.cpp */,
+				17EDB83C20C968D1001F9E87 /* MenuButton.cpp */,
 				1765DAD820AF3C7100339C48 /* Brick.cpp */,
 				1765DADC20AF3C8900339C48 /* GameObject.cpp */,
 				1765DADF20AF3C9400339C48 /* GraphicsManager.cpp */,
@@ -198,6 +213,7 @@
 				1765DAD920AF3C7100339C48 /* Brick.hpp */,
 				1765DAE620AF3CDC00339C48 /* Board.hpp */,
 				1765DAE920AF3E8300339C48 /* Background.hpp */,
+				17EDB83620C967B4001F9E87 /* MenuBackground.hpp */,
 			);
 			name = GameObjects;
 			sourceTree = "<group>";
@@ -221,6 +237,14 @@
 				17D2A13620C7170C000FB099 /* LevelClearedText.hpp */,
 			);
 			name = Texts;
+			sourceTree = "<group>";
+		};
+		17EDB83F20C968E0001F9E87 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				17EDB83D20C968D1001F9E87 /* MenuButton.hpp */,
+			);
+			name = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +309,8 @@
 				1765DACD20AF3C4200339C48 /* sansation.ttf in Resources */,
 				17D2A13020C71543000FB099 /* game_over.png in Resources */,
 				1765DACB20AF3C4200339C48 /* nice_music.ogg in Resources */,
+				17EDB83B20C96812001F9E87 /* congratulations_text.png in Resources */,
+				17EDB83A20C96812001F9E87 /* bg.png in Resources */,
 				1765DAC920AF3C4200339C48 /* cute_image.jpg in Resources */,
 				17D2A13920C7175C000FB099 /* level_cleared.png in Resources */,
 			);
@@ -313,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17EDB83E20C968D1001F9E87 /* MenuButton.cpp in Sources */,
 				17D8240F20BC2ADC005387B5 /* ObjectManager.cpp in Sources */,
 				1765DAE120AF3C9400339C48 /* GraphicsManager.cpp in Sources */,
 				1765DAE420AF3C9D00339C48 /* PhysicsManager.cpp in Sources */,
@@ -327,6 +354,7 @@
 				1765DADE20AF3C8900339C48 /* GameObject.cpp in Sources */,
 				17EDB83420C959BF001F9E87 /* CongratulationsText.cpp in Sources */,
 				17D2A13720C7170C000FB099 /* LevelClearedText.cpp in Sources */,
+				17EDB83720C967B4001F9E87 /* MenuBackground.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

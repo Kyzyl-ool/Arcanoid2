@@ -18,6 +18,8 @@
 #define BACKGROUNDS_FILE "backgrounds.png"
 #define BOARD_FILE "support.png"
 #define CONGRATULATIONS_FILE "congratulations_text.png"
+#define MAIN_FONT_FILE "sansation.ttf"
+#define MENU_BACKGROUND_FILE "bg.png"
 
 #define BRICK_AMOUNT_OF_COLLISION_RECTANGLES 4
 #define BOARD_AMOUNT_OF_COLLISION_RECTANGLES 3

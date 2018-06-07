@@ -24,6 +24,7 @@ enum GameObject_t
     LEVEL_CLEARED_TEXT,
     GAME_OVER_TEXT,
     CONGRATULATIONS_TEXT,
+    MENU_BACKGROUND,
     ABYSS
 };
 
