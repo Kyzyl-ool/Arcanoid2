@@ -83,10 +83,16 @@ void Ball::update(float dt)
     {
         Vx = 0;
         Vy = 0;
-        must_be_deleted = true;
-        ((GameManager* )GM)->getBoardInstance()->set_must_be_deleted(true);
         
         ((GameManager* )GM)->MakeGameOverText();
+        ((GameManager* )GM)->DestroyBall();
+        ((GameManager* )GM)->DestroyBoard();
+    }
+    
+    if (!((GameManager*)GM)->isBlocksLeft()) {
+        ((GameManager* )GM)->MakeLevelClearedText();
+        ((GameManager* )GM)->DestroyBall();
+        ((GameManager* )GM)->DestroyBoard();
     }
     
     sprite.setPosition(x, y);

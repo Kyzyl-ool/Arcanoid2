@@ -170,9 +170,6 @@ void GameManager::DrawObjects()
 void GameManager::UpdateObjects()
 {
     MainPhysicsManager.UpdateGameObjects();
-    if (!MainObjectManager.is_blocks_elpased())
-        MakeLevelClearedText();
-    
 }
 
 void GameManager::RunGame()
@@ -186,11 +183,6 @@ void GameManager::RunGame()
         ClearWindow();
         DrawObjects();
     }
-}
-
-Board* GameManager::getBoardInstance()
-{
-    return &TheBoard;
 }
 
 void GameManager::MakeGameOverText()
@@ -230,4 +222,19 @@ void GameManager::LoadMap(int map_number)
                 MainObjectManager.inc_amount_of_bricks();
             }
         }
+}
+
+void GameManager::DestroyBoard()
+{
+    TheBoard.~Board();
+}
+
+void GameManager::DestroyBall()
+{
+    TheBall.~Ball();
+}
+
+bool GameManager::isBlocksLeft()
+{
+    return MainObjectManager.is_blocks_elpased();
 }

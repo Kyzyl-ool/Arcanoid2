@@ -52,11 +52,14 @@ public:
     void MakeGameOverText();
     void MakeLevelClearedText();
     
+    void DestroyBoard();
+    void DestroyBall();
+    
     void LoadMap(int map_number);
     
 //    void StopGame(); //stops game
     
-    Board* getBoardInstance();
+    bool isBlocksLeft();
 };
 
 #endif /* GameManager_hpp */
