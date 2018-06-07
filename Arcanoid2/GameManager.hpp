@@ -33,8 +33,6 @@ private:
     
     int Space[MAX_BLOCKS_Y][MAX_BLOCKS_X];
     
-    
-    
 public:
     GameManager(sf::RenderWindow* iMainWindow);
     
