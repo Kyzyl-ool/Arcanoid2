@@ -14,7 +14,7 @@ CongratulationsText::CongratulationsText()
     
     texture.loadFromFile(CONGRATULATIONS_FILE);
     sprite.setTexture(texture);
-    sprite.setPosition((DEFAULT_SCREEN_WIDTH+CONGRATULATIONS_WIDTH)/2, (DEFAULT_SCREEN_HEIGHT+CONGRATULATIONS_HEIGHT)/2);
+    sprite.setPosition((DEFAULT_SCREEN_WIDTH-CONGRATULATIONS_WIDTH)/2, (DEFAULT_SCREEN_HEIGHT-CONGRATULATIONS_HEIGHT)/2);
     
 }
 
