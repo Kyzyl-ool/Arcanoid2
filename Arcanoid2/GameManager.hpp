@@ -24,7 +24,7 @@ private:
     Background* MainBackground;
     Board* TheBoard;
     Ball* TheBall;
-    Brick* Bricks;
+    Brick* Bricks[MAX_BLOCKS_Y][MAX_BLOCKS_X];
     
     GameOverText* TheGameOverText;
     LevelClearedText* TheLevelClearedText;
@@ -32,8 +32,6 @@ private:
     
     
     sf::Event MainEvent;
-    
-    int Space[MAX_BLOCKS_Y][MAX_BLOCKS_X];
     
     int current_map_number = 0;
     bool level_cleared = false;

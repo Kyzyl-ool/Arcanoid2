@@ -27,7 +27,7 @@ const int maps[MAPS_AMOUNT][MAX_BLOCKS_Y][MAX_BLOCKS_X] =
     },
     {
 //        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0},
+        {0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
@@ -67,6 +67,14 @@ TheLevelClearedText(new LevelClearedText()),
 TheCongratulationsText(new CongratulationsText())
 {
     //Creating main game objects
+    for (int i = 0; i < MAX_BLOCKS_Y; i++) {
+        for (int j = 0; j < MAX_BLOCKS_X; j++) {
+            Bricks[i][j] = new Brick(0, j*BLOCK_WIDTH, i*BLOCK_HEIGHT);
+            Bricks[i][j]->Deactivate();
+            MainObjectManager->AddGameObject(Bricks[i][j]);
+        }
+    }
+    
     LoadMap(0);
     
     //    Loading all game objects to game manager's array
@@ -114,7 +122,7 @@ void GameManager::CheckKeyboard()
             if (level_cleared)
             {
                 level_cleared = false;
-//                TheLevelClearedText->set_must_be_deleted(true);
+                
                 TheLevelClearedText->Deactivate();
                 TheBall->catch_by_mouse();
                 
@@ -129,8 +137,6 @@ void GameManager::CheckKeyboard()
                 else
                 {
                     MakeCongratulationsText();
-//                    TheBoard->set_must_be_deleted(true);
-//                    TheBall->set_must_be_deleted(true);
                     TheBoard->Deactivate();
                     TheBall->Deactivate();
                 }
@@ -247,31 +253,20 @@ void GameManager::MakeLevelClearedText()
 
 void GameManager::LoadMap(int map_number)
 {
-    for (int i = 0; i < MAX_BLOCKS_Y; ++i) {
-        for (int j = 0; j < MAX_BLOCKS_X; j++) {
-            Space[i][j] = maps[map_number][i][j];
-        }
-    }
-    
-    
-    Brick* Bricks[MAX_BLOCKS_Y][MAX_BLOCKS_X];
+    MainObjectManager->reset_amount_of_bricks();
     
     for (int i = 0; i < MAX_BLOCKS_Y; ++i) {
         for (int j = 0; j < MAX_BLOCKS_X; j++) {
-            Bricks[i][j] = nullptr;
-        }
-    }
-    
-    for (int i = 0; i < MAX_BLOCKS_Y; i++)
-        for (int j = 0; j < MAX_BLOCKS_X; j++)
-        {
-            if (Space[i][j] != -1)
+            Bricks[i][j]->Deactivate();
+            if (maps[map_number][i][j] != -1)
             {
-                Bricks[i][j] = new Brick(Space[i][j], j*BLOCK_WIDTH, i*BLOCK_HEIGHT);
-                MainObjectManager->AddGameObject(Bricks[i][j]);
+                Bricks[i][j]->setSort(maps[map_number][i][j]);
+                Bricks[i][j]->Activate();
                 MainObjectManager->inc_amount_of_bricks();
             }
+        
         }
+    }
 }
 
 void GameManager::DestroyBoard()

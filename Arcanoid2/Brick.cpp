@@ -25,8 +25,7 @@ health(1)
     
     x = ix;
     y = iy;
-    x2 = x + BLOCK_WIDTH;
-    y2 = y + BLOCK_HEIGHT;
+    
     texture.loadFromFile(DEFAULT_BLOCKS_FILE);
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(
@@ -87,4 +86,9 @@ Rect Brick::getRect(int n)
 {
     assert(n < BRICK_AMOUNT_OF_COLLISION_RECTANGLES && n >= 0);
     return collisionRectangles[n];
+}
+
+void Brick::setSort(int isort)
+{
+    sort = isort;
 }

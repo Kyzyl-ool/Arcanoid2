@@ -17,7 +17,6 @@ class Brick: public GameObject
 private:
     int sort;
     int health;
-    int x2, y2;
     
     Rect collisionRectangles[4];
     
@@ -29,6 +28,8 @@ public:
     void collideResponse(GameObject* obj);
     
     void getDamage();
+    
+    void setSort(int isort);
     
     Rect getRect(int n);
 };

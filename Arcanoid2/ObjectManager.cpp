@@ -47,3 +47,8 @@ void ObjectManager::inc_amount_of_bricks()
 {
     amount_of_bricks++;
 }
+
+void ObjectManager::reset_amount_of_bricks()
+{
+    amount_of_bricks = 0;
+}
