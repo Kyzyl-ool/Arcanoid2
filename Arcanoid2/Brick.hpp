@@ -15,13 +15,14 @@
 class Brick: public GameObject
 {
 private:
+    void* GM;
     int sort;
     int health;
     
     Rect collisionRectangles[4];
     
 public:
-    Brick(int the_sort, int ix, int iy);
+    Brick(int the_sort, int ix, int iy, void* GM);
     
     void update(float);
     void draw(sf::RenderWindow* window);

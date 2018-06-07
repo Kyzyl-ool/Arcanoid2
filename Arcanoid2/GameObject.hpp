@@ -30,7 +30,6 @@ enum GameObject_t
 class GameObject
 {
 protected:
-    bool must_be_deleted;
     bool active = true;
     double x, y;
     GameObject_t type;
@@ -38,14 +37,12 @@ protected:
     sf::Texture texture;
     
 public:
-    bool is_must_be_deleted();
     bool is_active();
     sf::Sprite* GetSprite();
     virtual void update(float) {;}
     virtual void draw(sf::RenderWindow* window) {;}
     virtual bool collideCheck(GameObject* obj) {;}
     virtual void collideResponse(GameObject* obj) {;}
-    void set_must_be_deleted(bool);
     
     double getX();
     double getY();

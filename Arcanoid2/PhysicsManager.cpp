@@ -17,19 +17,6 @@ MM(MM)
 
 void PhysicsManager::UpdateGameObjects()
 {
-    std::stack<GameObject*> Grave;
-    for (auto it = MM->getGameObjects()->begin(); it != MM->getGameObjects()->end(); ++it) {
-        if (is_valid_object(it->first) && it->first->is_must_be_deleted())
-        {
-            Grave.push(it->first);
-        }
-    }
-    while (!Grave.empty())
-    {
-        MM->RemoveGameObject(Grave.top());
-        Grave.pop();
-    }
-    
     for (auto it = MM->getGameObjects()->begin(); it != MM->getGameObjects()->end(); ++it) {
         for (auto jt = MM->getGameObjects()->begin(); jt != MM->getGameObjects()->end(); ++jt) {
             if (is_valid_object(it->first) && is_valid_object(jt->first) && it->first != jt->first)

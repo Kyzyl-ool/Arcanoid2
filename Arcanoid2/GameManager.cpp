@@ -69,7 +69,7 @@ TheCongratulationsText(new CongratulationsText())
     //Creating main game objects
     for (int i = 0; i < MAX_BLOCKS_Y; i++) {
         for (int j = 0; j < MAX_BLOCKS_X; j++) {
-            Bricks[i][j] = new Brick(0, j*BLOCK_WIDTH, i*BLOCK_HEIGHT);
+            Bricks[i][j] = new Brick(0, j*BLOCK_WIDTH, i*BLOCK_HEIGHT, this );
             Bricks[i][j]->Deactivate();
             MainObjectManager->AddGameObject(Bricks[i][j]);
         }
@@ -304,4 +304,9 @@ void GameManager::LevelComplete()
     MakeLevelClearedText();
     DestroyBoard();
     DestroyBall();
+}
+
+void GameManager::BrickDestroyed()
+{
+    MainObjectManager->dec_amount_of_bricks();
 }

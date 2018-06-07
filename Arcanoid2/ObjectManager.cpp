@@ -52,3 +52,8 @@ void ObjectManager::reset_amount_of_bricks()
 {
     amount_of_bricks = 0;
 }
+
+void ObjectManager::dec_amount_of_bricks()
+{
+    amount_of_bricks--;
+}

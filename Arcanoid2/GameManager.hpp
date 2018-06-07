@@ -59,6 +59,7 @@ public:
     
     void BallFelt();
     void LevelComplete();
+    void BrickDestroyed();
     
     void LoadMap(int map_number);
     

@@ -8,8 +8,7 @@
 
 #include "GameObject.hpp"
 
-GameObject::GameObject():
-must_be_deleted(false)
+GameObject::GameObject()
 {
     
 }
@@ -32,16 +31,6 @@ double GameObject::getX()
 double GameObject::getY()
 {
     return y;
-}
-
-bool GameObject::is_must_be_deleted()
-{
-    return must_be_deleted;
-}
-
-void GameObject::set_must_be_deleted(bool value)
-{
-    must_be_deleted = value;
 }
 
 bool GameObject::is_active()

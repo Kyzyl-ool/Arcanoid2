@@ -7,6 +7,7 @@
 //
 
 #include "Brick.hpp"
+#include "GameManager.hpp"
 
 int get_brick_coord_x(int sort)
 {
@@ -17,9 +18,10 @@ int get_brick_coord_y(int health)
     return (health-1)*BLOCK_HEIGHT/2;
 }
 
-Brick::Brick(int the_sort, int ix, int iy):
+Brick::Brick(int the_sort, int ix, int iy, void* GM):
 sort(the_sort),
-health(1)
+health(1),
+GM(GM)
 {
     type = BLOCK;
     
@@ -47,7 +49,8 @@ void Brick::update(float)
 {
     if (health <= 0)
     {
-        must_be_deleted = true;   
+        active = false;
+        ((GameManager* )GM)->BrickDestroyed();
     }
     else
     {

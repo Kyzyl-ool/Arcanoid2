@@ -29,6 +29,7 @@ public:
     sf::RenderWindow* getRenderWindow();
     void inc_amount_of_bricks();
     void reset_amount_of_bricks();
+    void dec_amount_of_bricks();
     
     bool is_blocks_elpased();
 };
