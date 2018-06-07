@@ -65,7 +65,8 @@ TheBall(new Ball(this)),
 TheGameOverText(new GameOverText()),
 TheLevelClearedText(new LevelClearedText()),
 TheCongratulationsText(new CongratulationsText()),
-TheMenuBackground(new MenuBackground())
+TheMenuBackground(new MenuBackground()),
+Button_StartGame(new MenuButton(DEFAULT_SCREEN_WIDTH/2, DEFAULT_SCREEN_HEIGHT/2, "START GAME", sf::Color::Red, sf::Color::White))
 {
     //Initializing font
     MainFont.loadFromFile(MAIN_FONT_FILE);
@@ -230,8 +231,9 @@ void GameManager::RunGame()
     {
         if (main_menu_status)
         {
-            
+            CheckMenuEvents();
             DrawMenu();
+            ClearWindow();
         }
         else
         {
@@ -324,5 +326,39 @@ void GameManager::LevelComplete()
 
 void GameManager::DrawMenu()
 {
-    
+    TheMenuBackground->draw(MainWindow);
+    Button_StartGame->Draw(MainWindow);
+    MainWindow->display();
+}
+
+void GameManager::CheckMenuEvents()
+{
+    while (MainWindow->pollEvent(MainEvent))
+    {
+        switch (MainEvent.type)
+        {
+            case sf::Event::Closed:
+            {
+                MainWindow->close();
+                break;
+            }
+            case sf::Event::KeyPressed:
+            {
+                CheckMenuKeyboardEvents();
+                break;
+            }
+            default: break;
+        }
+    }
+}
+
+void GameManager::CheckMenuKeyboardEvents()
+{
+    switch (MainEvent.key.code)
+    {
+        case sf::Keyboard::Escape:
+            MainWindow->close();
+            break;
+        default: break;
+    }
 }

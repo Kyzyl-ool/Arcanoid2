@@ -13,6 +13,7 @@ MenuBackground::MenuBackground()
     type = MENU_BACKGROUND;
     texture.loadFromFile(MENU_BACKGROUND_FILE);
     sprite.setTexture(texture);
+    sprite.setScale(2, 2);
 }
 
 void MenuBackground::draw(sf::RenderWindow *window)

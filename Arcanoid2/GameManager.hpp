@@ -31,6 +31,7 @@ private:
     LevelClearedText* TheLevelClearedText;
     CongratulationsText* TheCongratulationsText;
     
+    MenuButton* Button_StartGame;
     
     sf::Event MainEvent;
     sf::Font MainFont;

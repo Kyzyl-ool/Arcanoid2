@@ -19,4 +19,7 @@
 #include "CongratulationsText.hpp"
 #include "MenuBackground.hpp"
 
+#include "Button.hpp"
+#include "MenuButton.hpp"
+
 #endif /* GameObjects_h */

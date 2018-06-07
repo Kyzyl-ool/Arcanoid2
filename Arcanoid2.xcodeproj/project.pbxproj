@@ -31,6 +31,7 @@
 		17EDB83A20C96812001F9E87 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 17EDB83820C96812001F9E87 /* bg.png */; };
 		17EDB83B20C96812001F9E87 /* congratulations_text.png in Resources */ = {isa = PBXBuildFile; fileRef = 17EDB83920C96812001F9E87 /* congratulations_text.png */; };
 		17EDB83E20C968D1001F9E87 /* MenuButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17EDB83C20C968D1001F9E87 /* MenuButton.cpp */; };
+		17EDB84220C9691E001F9E87 /* Button.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 17EDB84020C9691E001F9E87 /* Button.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,8 @@
 		17EDB83920C96812001F9E87 /* congratulations_text.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = congratulations_text.png; sourceTree = "<group>"; };
 		17EDB83C20C968D1001F9E87 /* MenuButton.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MenuButton.cpp; sourceTree = "<group>"; };
 		17EDB83D20C968D1001F9E87 /* MenuButton.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MenuButton.hpp; sourceTree = "<group>"; };
+		17EDB84020C9691E001F9E87 /* Button.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Button.cpp; sourceTree = "<group>"; };
+		17EDB84120C9691E001F9E87 /* Button.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Button.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				17EDB83220C959BF001F9E87 /* CongratulationsText.cpp */,
+				17EDB84020C9691E001F9E87 /* Button.cpp */,
 				17D2A13520C7170C000FB099 /* LevelClearedText.cpp */,
 				17EDB83520C967B4001F9E87 /* MenuBackground.cpp */,
 				17D2A12820C712A7000FB099 /* GameOverText.cpp */,
@@ -243,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				17EDB83D20C968D1001F9E87 /* MenuButton.hpp */,
+				17EDB84120C9691E001F9E87 /* Button.hpp */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 			files = (
 				17EDB83E20C968D1001F9E87 /* MenuButton.cpp in Sources */,
 				17D8240F20BC2ADC005387B5 /* ObjectManager.cpp in Sources */,
+				17EDB84220C9691E001F9E87 /* Button.cpp in Sources */,
 				1765DAE120AF3C9400339C48 /* GraphicsManager.cpp in Sources */,
 				1765DAE420AF3C9D00339C48 /* PhysicsManager.cpp in Sources */,
 				1765DAE720AF3CDC00339C48 /* Board.cpp in Sources */,
