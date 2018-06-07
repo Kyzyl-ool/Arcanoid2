@@ -43,3 +43,18 @@ void GameObject::set_must_be_deleted(bool value)
 {
     must_be_deleted = value;
 }
+
+bool GameObject::is_active()
+{
+    return active;
+}
+
+void GameObject::Deactivate()
+{
+    active = false;
+}
+
+void GameObject::Activate()
+{
+    active = true;
+}

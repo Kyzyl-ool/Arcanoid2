@@ -46,6 +46,7 @@ public:
     void collideResponse(GameObject* obj);
     
     void release();
+    void catch_by_mouse();
     
     void changeVelocityDependedOnCollide();
 };

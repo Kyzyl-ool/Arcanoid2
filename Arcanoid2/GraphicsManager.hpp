@@ -23,6 +23,7 @@ public:
     GraphicsManager(ObjectManager* MM);
     void DrawGameObjects();
     
+    bool is_valid_object(GameObject* obj);
 };
 
 #endif /* GraphicsManager_hpp */

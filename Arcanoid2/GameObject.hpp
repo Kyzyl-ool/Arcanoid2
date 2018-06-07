@@ -31,6 +31,7 @@ class GameObject
 {
 protected:
     bool must_be_deleted;
+    bool active = true;
     double x, y;
     GameObject_t type;
     sf::Sprite sprite;
@@ -38,6 +39,7 @@ protected:
     
 public:
     bool is_must_be_deleted();
+    bool is_active();
     sf::Sprite* GetSprite();
     virtual void update(float) {;}
     virtual void draw(sf::RenderWindow* window) {;}
@@ -47,6 +49,9 @@ public:
     
     double getX();
     double getY();
+    
+    void Deactivate();
+    void Activate();
     
     GameObject_t who();
     GameObject();

@@ -1,5 +1,5 @@
 //
-//  MainManager.hpp
+//  ObjectManager.hpp
 //  Arcanoid2
 //
 //  Created by Кежик Кызыл-оол on 28.05.2018.

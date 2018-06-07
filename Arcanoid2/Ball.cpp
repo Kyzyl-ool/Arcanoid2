@@ -244,3 +244,8 @@ bool Ball::collideCheck(GameObject* obj)
             break;
     }
 }
+
+void Ball::catch_by_mouse()
+{
+    free = false;
+}

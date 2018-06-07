@@ -73,7 +73,13 @@ TheCongratulationsText(new CongratulationsText())
     MainObjectManager->AddGameObject(MainBackground);
     MainObjectManager->AddGameObject(TheBoard);
     MainObjectManager->AddGameObject(TheBall);
+    MainObjectManager->AddGameObject(TheGameOverText);
+    MainObjectManager->AddGameObject(TheLevelClearedText);
+    MainObjectManager->AddGameObject(TheCongratulationsText);
     
+    TheLevelClearedText->Deactivate();
+    TheGameOverText->Deactivate();
+    TheCongratulationsText->Deactivate();
 //    for (int i = 0; i < MAX_BLOCKS_Y; i++)
 //    {
 //        for (int j = 0; j < MAX_BLOCKS_X; j++)
@@ -108,24 +114,25 @@ void GameManager::CheckKeyboard()
             if (level_cleared)
             {
                 level_cleared = false;
-                TheLevelClearedText->set_must_be_deleted(true);
+//                TheLevelClearedText->set_must_be_deleted(true);
+                TheLevelClearedText->Deactivate();
+                TheBall->catch_by_mouse();
                 
                 if (current_map_number < MAPS_AMOUNT-1)
                 {
                     LoadMap(++current_map_number);
                     MainBackground->set_number(current_map_number);
                     
-                    TheBall = new Ball(this);
-                    TheBoard = new Board();
-                    
-                    MainObjectManager->AddGameObject(TheBall);
-                    MainObjectManager->AddGameObject(TheBoard);
+                    TheBall->Activate();
+                    TheBoard->Activate();
                 }
                 else
                 {
                     MakeCongratulationsText();
-                    TheBoard->set_must_be_deleted(true);
-                    TheBall->set_must_be_deleted(true);
+//                    TheBoard->set_must_be_deleted(true);
+//                    TheBall->set_must_be_deleted(true);
+                    TheBoard->Deactivate();
+                    TheBall->Deactivate();
                 }
             }
             break;
@@ -227,12 +234,14 @@ void GameManager::RunGame()
 
 void GameManager::MakeGameOverText()
 {
-    MainObjectManager->AddGameObject(TheGameOverText);
+//    MainObjectManager->AddGameObject(TheGameOverText);
+    TheGameOverText->Activate();
 }
 
 void GameManager::MakeLevelClearedText()
 {
-    MainObjectManager->AddGameObject(TheLevelClearedText);
+//    MainObjectManager->AddGameObject(TheLevelClearedText);
+    TheLevelClearedText->Activate();
     level_cleared = true;
 }
 
@@ -267,12 +276,14 @@ void GameManager::LoadMap(int map_number)
 
 void GameManager::DestroyBoard()
 {
-    TheBoard->set_must_be_deleted(true);
+//    TheBoard->set_must_be_deleted(true);
+    TheBoard->Deactivate();
 }
 
 void GameManager::DestroyBall()
 {
-    TheBall->set_must_be_deleted(true);
+//    TheBall->set_must_be_deleted(true);
+    TheBall->Deactivate();
 }
 
 bool GameManager::isBlocksLeft()
@@ -282,7 +293,8 @@ bool GameManager::isBlocksLeft()
 
 void GameManager::MakeCongratulationsText()
 {
-    MainObjectManager->AddGameObject(TheCongratulationsText);
+//    MainObjectManager->AddGameObject(TheCongratulationsText);
+    TheCongratulationsText->Activate();
 }
 
 void GameManager::BallFelt()

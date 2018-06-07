@@ -25,6 +25,8 @@ public:
     PhysicsManager(ObjectManager* MM);
     
     void UpdateGameObjects();
+    
+    bool is_valid_object(GameObject* obj);
 };
 
 
